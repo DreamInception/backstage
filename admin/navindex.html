@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>page</title>
+    <link rel="stylesheet" href="css/page_01.css">
+    <script src="js/plugins/jquery/dist/jquery.min.js"></script>
+    <script src="js/plugins/vue/dist/vue.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var app = new Vue({
+                el: '#app',
+                data:{
+                    cur: 1,
+                    all:20,
+                    total_count:100,
+                    page:'1'
+                },
+                components:{
+                    'vue-nav': Vnav
+                },
+                methods:{
+                    listens:function(data){
+                        this.cur=data;
+                        this.page=this.cur;
+                    }
+                }
+            });
+        })
+    </script>
+    <script  src="js/vue-nav.js"></script>
+</head>
+<body>
+    <div id="app" class="page">
+        <!--<div class="page_tips">共{{total_count}}条记录,{{cur}}/{{all}}页</div>-->
+        <div style="color: red">page:{{page}}</div>
+        <vue-nav :total_count="total_count" :cur="cur" :all="all" v-on:btnclick="listens" >
+
+        </vue-nav>
+    </div>
+</body>
+</html>

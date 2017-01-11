@@ -1,0 +1,65 @@
+{
+  "result":0,
+  "message":"success",
+  "cur_page":1,
+  "page_size":10,
+  "page_count":20,
+  "total_count":22,
+  "rows": [
+    {
+      "content": "好很好，河南省洛阳地区2014-2",
+      "createTime": "2016-12-15 15:33:01",
+      "id": "1",
+      "resourceName": "红楼梦",
+      "score": 4,
+      "state": "1",
+      "userState":"1",
+      "userid":"uuid1",
+      "username":"评论用户"
+    },
+    {
+      "content": "好很好，河南省洛阳地区2014-144",
+      "createTime": "2016-12-07 15:33:26",
+      "id": "2",
+      "resourceName": "水浒传",
+      "score": 5,
+      "state": "0",
+      "userState":"1",
+      "userid":"uuid2",
+      "username":"评论用户2"
+    },
+    {
+      "content": "好很好，河南省洛阳地区2014-2好很好，河南省洛阳地区2014-2",
+      "createTime": "2016-12-15 15:33:01",
+      "id": "3",
+      "resourceName": "红楼梦",
+      "score": 4,
+      "state": "1",
+      "userState":"0",
+      "userid":"uuid3",
+      "username":"评论用户"
+    },
+    {
+      "content": "好很好，河南省洛阳地区2014-2",
+      "createTime": "2016-12-15 15:33:01",
+      "id": "4",
+      "resourceName": "红楼梦",
+      "score": 4,
+      "state": "1",
+      "userState":"1",
+      "userid":"uuid4",
+      "username":"评论用户"
+    },
+    {
+      "content": "好很好，河南省洛阳地区2014-2",
+      "createTime": "2016-12-15 15:33:01",
+      "id": "5",
+      "resourceName": "红楼梦",
+      "score": 4,
+      "state": "0",
+      "userState":"0",
+      "userid":"uuid5",
+      "username":"评论用户"
+    }
+  ]
+}

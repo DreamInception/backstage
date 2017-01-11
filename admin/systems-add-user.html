@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户管理－添加</title>
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/systems.css">
+    <script src="js/plugins/jquery/dist/jquery.min.js"></script>
+    <script src="js/plugins/vue/dist/vue.min.js"></script>
+    <script src="js/plugins/jquery.selectbox/jquery.selectBox.min.js"></script>
+    <script src="js/urlParam.js"></script>
+    <script src="js/systems-add-user.js"></script>
+</head>
+<body>
+<article id="system-add-user" class="system-add-user">
+    <div class="tab clearfix">
+        <ul>
+            <li><a href="systems-user.html" class="active">用户管理</a></li>
+            <li><a href="systems-power.html">权限管理</a></li>
+            <li><a href="systems-working.html">操作日志</a></li>
+        </ul>
+    </div>
+    <section class="form-section">
+        <fieldset>
+            <label for="username">用户名</label>
+            <input type="text" class="password" id="loginName"/>
+        </fieldset>
+        <fieldset>
+            <label for="username">姓名</label>
+            <input type="text" class="password" id="username"/>
+        </fieldset>
+        <!--<fieldset>-->
+            <!--<label for="password">默认密码</label>-->
+            <!--<input type="password" class="password" id="password"/>-->
+        <!--</fieldset>-->
+        <fieldset>
+            <label>角色</label>
+            <div class="dropdown">
+                <select name="standard-dropdown" class="standard-dropdown wide" id="role">
+                    <!--<option value="0" selected="selected">全部</option>-->
+                    <!--<option value="1">购买者</option>-->
+                    <!--<option value="2">订单编号</option>-->
+                    <!--<option value="4">资源名称</option>-->
+                </select>
+            </div>
+        </fieldset>
+        <fieldset>
+            <label for="userDes">用户描述</label>
+            <input type="text" class="password" id="userDes"/>
+        </fieldset>
+        <fieldset>
+            <label class="powerlab">数据权限</label>
+            <div class="power">
+                <ul>
+                    <li><input type="checkbox" name="checkschool01" class="powercheck" id="checkid01"><label for="checkid01">小学</label></li>
+                        <ul class="listbar">
+                            <li><input type="checkbox" name="checkschool01" class="powercheck" id="checkbar02"><label for="checkbar02">语文</label></li>
+                            <li><input type="checkbox" name="checkschool01" class="powercheck" id="checkbar03"><label for="checkbar03">语文</label></li>
+                            <li><input type="checkbox" name="checkschool01" class="powercheck" id="checkbar04"><label for="checkbar04">语文</label></li>
+                            <li><input type="checkbox" name="checkschool01" class="powercheck" id="checkbar05"><label for="checkbar05">语文</label></li>
+                        </ul>
+                    <li><input type="checkbox" name="checkschool01" class="powercheck" id="checkid02"><label for="checkid02">初中</label></li>
+                        <ul class="listbar">
+                            <li><input type="checkbox" name="checkschool01" class="powercheck" id="checkbar02"><label for="checkbar02">语文</label></li>
+                            <li><input type="checkbox" name="checkschool01" class="powercheck" id="checkbar03"><label for="checkbar03">语文</label></li>
+                            <li><input type="checkbox" name="checkschool01" class="powercheck" id="checkbar04"><label for="checkbar04">语文</label></li>
+                            <li><input type="checkbox" name="checkschool01" class="powercheck" id="checkbar05"><label for="checkbar05">语文</label></li>
+                        </ul>
+                    <li></span><input type="checkbox" name="checkschool01" class="powercheck" id="checkid03"><label for="checkid03">高中</label></li>
+                </ul>
+            </div>
+        </fieldset>
+    </section>
+    <section class="btn-section clearfix">
+        <button class="confirm" id="OK" onclick="saveOrUpdate()">确认</button>
+        <button class="reset" onclick="back()">取消</button>
+    </section>
+</article>
+</body>
+</html>

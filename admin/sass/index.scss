@@ -1,0 +1,177 @@
+@import "config";
+@import "compass";
+@import "compass/utilities/sprites";
+
+body{
+  background:$bg;
+  color:$fontColor;
+}
+.header{
+  width: 100%;
+  height:65px;
+  position: absolute;
+  background: $mainColor;
+  z-index: 999;
+  left:0;
+  top:0;
+  @include pie-clearfix();
+}
+.footer{
+  width: 100%;
+  height: 57px;
+  //background:$footBg;
+  position: absolute;
+  z-index: 999;
+  left: 0;
+  bottom:0;
+  text-align: center;
+  line-height:57px;
+  span{
+    padding: 0 5px;
+  }
+}
+.maincontent{
+  width: 100%;
+  margin-top:65px;
+  background:$bg;
+}
+.left{
+  width:188px;
+  position: absolute;
+  background:$whiteColor;
+  color: $subTitleColor;
+  z-index: 998;
+  left: 0;
+  top:65px;
+  overflow: auto;
+
+}
+.right{
+  margin-left:204px;
+  //background: #fff;
+  top:16px;
+  margin-right: 16px;
+  position: relative;
+}
+.logo{
+  float: left;
+  padding:15px 0 0 35px;
+}
+.headlist{
+  float: right;
+  li{
+    float: left;
+    padding-right:20px;
+    line-height: 65px;
+    color:$whiteColor;
+    a{
+      color:$whiteColor;
+    }
+  }
+  li.quit{
+    width: 64px;
+    height: 65px;
+    background:$quitColor url("../images/nav/quit.png") no-repeat center;
+    cursor: pointer;
+    a{
+      height: 100%;
+      width: 100%;
+      display: block;
+    }
+  }
+  .change a{
+    color: #fff;
+    cursor: pointer;
+    background: url(../images/change.png) no-repeat top left;
+    padding-left: 20px;
+  }
+}
+.logorht{
+  height: 30px;
+  //background: $headerBg;
+  li{
+    float: right;
+    text-align: center;
+    padding-right: 10px;
+    span{
+      float: left;
+      display: block;
+      height: 30px;
+      line-height:25px;
+      margin: 25px 0;
+    }
+    a{
+      display: block;
+      float: left;
+      line-height: 30px;
+      padding-left: 26px;
+      color: $fontColor;
+      &:hover{
+        color:$mainColor;
+      }
+    }
+  }
+}
+.navList{
+  li{
+    display:block;
+    height:50px;
+    line-height: 50px;
+    text-align:left;
+    border-bottom: 1px solid $borderColor;
+    cursor: pointer;
+    font-size: 14px;
+    a{
+      width: 100%;
+      display: inline-block;
+      padding-left:40px;
+    }
+    span{
+       img{
+         float: left;
+         margin-top: 17px;
+         margin-right: 10px;
+       }
+    }
+    &:hover,&.selectedNav{
+      background:$navHover;
+    }
+  }
+}
+.shown{
+  display: block!important;
+}
+.arrow{
+  width: 10px;
+  height: 50px;
+  background:$mainColor;
+  position: absolute;
+  top:50%;
+  left:-10px;
+  margin-top:-25px;
+  z-index: 999;
+  border-top-right-radius:3px;
+  border-bottom-right-radius:3px;
+  line-height: 50px;
+  font-family: "SimSun";
+  text-align: center;
+  color:#fff;
+  cursor: pointer;
+  &:hover{
+    @include opacity(.85);
+  }
+}
+.switch{
+  .left{
+    display: none;
+  }
+  .right{
+    margin-left:10px;
+  }
+}
+.small_width{
+  max-width: 120px;
+}
+.shown{
+  display: block;
+}

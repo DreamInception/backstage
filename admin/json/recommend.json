@@ -1,0 +1,80 @@
+{
+  "result":0,
+  "message":"success",
+  "cur_page":1,
+  "page_size":10,
+  "page_count":20,
+  "total_count":22,
+  "rows": [
+    {
+      "id":1,
+      "resourceName": "红楼梦",
+      "edition": "永久",
+      "resourceMaker": "王嘉佳",
+      "createUserName": "李青",
+      "createDateTime": "2016/10/08 20:20",
+      "cost": "免费",
+      "accumEarnings":"100",
+      "score":"4.2",
+      "pageview":"100",
+      "downloads":"100",
+      "state":"1"
+    },
+    {
+      "id":2,
+      "resourceName": "红楼梦",
+      "edition": "永久",
+      "resourceMaker": "王嘉佳",
+      "createUserName": "李青",
+      "createDateTime": "2016/10/08 20:20",
+      "cost": "免费",
+      "accumEarnings":"100",
+      "score":"4.2",
+      "pageview":"100",
+      "downloads":"100",
+      "state":"2"
+    },
+    {
+      "id":3,
+      "resourceName": "红楼梦",
+      "edition": "永久",
+      "resourceMaker": "王嘉佳",
+      "createUserName": "李青",
+      "createDateTime": "2016/10/08 20:20",
+      "cost": "免费",
+      "accumEarnings":"100",
+      "score":"4.2",
+      "pageview":"100",
+      "downloads":"100",
+      "state":"3"
+    },
+    {
+      "id":3,
+      "resourceName": "红楼梦",
+      "edition": "永久",
+      "resourceMaker": "王嘉佳",
+      "createUserName": "李青",
+      "createDateTime": "2016/10/08 20:20",
+      "cost": "免费",
+      "accumEarnings":"100",
+      "score":"4.2",
+      "pageview":"100",
+      "downloads":"100",
+      "state":"1"
+    },
+    {
+      "id":4,
+      "resourceName": "红楼梦",
+      "edition": "永久",
+      "resourceMaker": "王嘉佳",
+      "createUserName": "李青",
+      "createDateTime": "2016/10/08 20:20",
+      "cost": "免费",
+      "accumEarnings":"100",
+      "score":"4.2",
+      "pageview":"100",
+      "downloads":"100",
+      "state":"1"
+    }
+  ]
+}

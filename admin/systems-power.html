@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>权限管理</title>
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/systems.css">
+    <link rel="stylesheet" href="js/plugins/datetimepicker/jquery.datetimepicker.css">
+    <script src="js/plugins/jquery/dist/jquery.min.js"></script>
+    <script src="js/plugins/vue/dist/vue.min.js"></script>
+    <script src="js/plugins/jquery.selectbox/jquery.selectBox.min.js"></script>
+    <script src="js/plugins/datetimepicker/jquery.datetimepicker.min.js"></script>
+    <script src="js/vuePage.js"></script>
+    <script src="js/geCheckboxIds.js"></script>
+    <script>
+       var myUrl='/roleManagerRest/queryRole';
+    </script>
+    <script src="js/system_power.js"></script>
+    
+</head>
+<body>
+<article id="webbar">
+    <div class="tab clearfix">
+        <ul>
+            <li><a href="systems-user.html">用户管理</a></li>
+            <li><a href="systems-power.html" class="active">权限管理</a></li>
+            <li><a href="systems-working.html">操作日志</a></li>
+        </ul>
+    </div>
+    <div class="tab">
+        <div class="linebar clearfix">
+            <input type="text" name="rolename" id="rolename" value="" class="inpclass inpwidth" placeholder="请输入要搜索的用户名">
+            <button class="check-btn" id="searchbutton" onclick="querybyc()">查询</button>
+        </div>
+    </div>
+  
+    <div class="linebar adduser">
+        <button class="check-btn" onclick="add()">新增角色</button>
+    </div>
+    <div class="tablebar">
+        <div class="wrap_table">
+            <table class="table table-striped fixed-width" width="100%">
+                <thead>
+                <tr>
+                    <th width="6%"><input type="checkbox"  name="check" class="check-all"></th>
+<!--                     <th width="7%">ID</th> -->
+                    <th width="7%">角色名称</th>
+                    <th width="10%">角色描述</th>
+<!--                     <th width="16%">角色权限</th> -->
+                    <th width="8%">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                 <tr v-if="dataList.length>0" v-for="d in dataList"> 
+                    <td><input type="checkbox"  name="check" class="item-check" :id="d.id"></td>
+                    <td>{{d.roleName}}</td>
+                    <td>{{d.des}}</td>
+                    <td><a href="javascript:void(0)" class="usercheck"  @click="update(d.id)">编辑</a><a href="javascript:void(0)" @click="query(d.id)">查看</a></td>
+                 </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="linebar">
+            <button class="check-btn" onclick="pldel()">批量删除</button>
+<!--             <button class="check-btn">批量下架</button> -->
+        </div>
+        <div id="app" class="page">
+            <div class="wrap_page_l">
+                <a href="#" class="btn-normal hide">批量取消</a>
+                <div class="page_tips">共{{total_count}}条记录,{{cur}}/{{all}}页</div>
+            </div>
+            <vue-nav :total_count="total_count" :cur="cur" :all="all" v-on:btnclick="listens" ></vue-nav>
+        </div>
+    </div>
+</article>
+</body>
+</html>

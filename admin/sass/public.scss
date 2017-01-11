@@ -1,0 +1,40 @@
+@import "compass";
+@import "normalize";
+@import "config";
+*{
+  box-sizing: border-box;
+}
+body{
+  background:$bg;
+  font-size: 12px;
+  font-family:"Microsoft YaHei";
+}
+a{
+  color:$fontColor;
+  text-decoration:none;
+}
+ul,li{
+  list-style: none;
+}
+dl,dt,dd,ul,li{
+  padding: 0;
+  margin: 0;
+}
+button{
+  border: none;
+  outline:none;
+}
+
+.clearfix{
+  @include pie-clearfix();
+}
+input{outline:none;padding: 0;};
+.selectbox {display: inline-block;float: left;}
+.maincontent{
+  width: 1200px;
+  margin: 0px auto;
+}
+[v-cloak] { display: none; }
+.w100{
+  width: 100%!important;
+}

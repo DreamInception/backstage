@@ -1,0 +1,27 @@
+{
+  "result": 0,
+  "message": "success",
+  "data": {
+    "birthday": "2016-11-29 00:00:00",
+    "createtime": "2017-01-04 11:01:58",
+    "downloadCount": 23,
+    "email": "dasd",
+    "headPicPath": "da",
+    "id": "1",
+    "level": "asd",
+    "loginName": "asd",
+    "password": "asd",
+    "phase": "asd",
+    "phaseId": "asd",
+    "phone": "asd",
+    "sex": "1",
+    "state": "1",
+    "subject": "asdas",
+    "subjectId": "asd",
+    "teachAge": 2,
+    "updatetime": "2016-12-15 11:01:54",
+    "username": "asd",
+    "totalPaid":"1000"
+  }
+}
+

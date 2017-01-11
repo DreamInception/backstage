@@ -1,0 +1,86 @@
+@import "compass";
+@import "config";
+$bgColor:#DFE5EA;
+$tbColor:#8893B3;
+$blueColor:#3799DA;
+$angle:3px;
+//弹出窗
+.winbox,.winboxOffic,.winboxGalley{
+  z-index:999;
+  font-size:14px;
+  position: absolute;
+  top:290px;
+  left:50%;
+  margin-left:-144px;
+  .win{
+    z-index:1993;
+    width:288px;
+    height:191px;
+    background:#fff;
+    text-align: center;
+    @include border-radius(3px);
+    border:1px solid $borderColor;
+    &.winb{
+      position: relative;
+      padding:0 40px;
+      font-size:12px;
+      div{
+        padding:0;
+        margin-bottom:20px;
+        span{
+          line-height:30px;
+          float:left;
+        }
+        button{
+          @include radiusBtn(80px, 30px,$tbColor,$whiteColor,#d2d2d2,$angle);
+        }
+        img{
+          width:22px;
+          height:22px;
+          margin-top:3px;
+        }
+      }
+      .close{
+        width:24px;
+        height:22px;
+        position: absolute;
+        top:0;
+        right:0;
+        background:url("../images/closealert.png") no-repeat 100% 100%;
+      }
+    }
+    &.winTop{
+      margin-top:140px;
+    }
+    p{
+      padding:30px 30px 20px;
+      &.winP{
+        font-size:14px;
+        padding:10px 30px 20px;
+      }
+    }
+    div{
+      padding:0 35px;
+      button{
+        @include radiusBtn(80px, 30px,$whiteColor,$fontColor,#d2d2d2,$angle);
+        float:right;
+        &.file{
+          position: relative;
+          background:$tbColor;
+          color: $whiteColor;
+          overflow: hidden;
+          float:left;
+          input{
+            width:100%;
+            height:100%;
+            position: absolute;
+            top:0;
+            left:0;
+            opacity:0;
+          }
+        }
+      }
+    }
+  }
+}
+

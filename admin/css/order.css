@@ -1,0 +1,144 @@
+.table { color: #666; background: #fff; max-width: 100%; margin-bottom: 10px; border: 1px solid #e6e6e6; border-left-width: 0; border-right-width: 0; }
+.table.fixed-width { min-width: 1020px; }
+.table tr.selected { background: #deeafd; }
+.table tr:hover td { background: #deeafd; }
+.table th, .table td { padding: 10px; vertical-align: middle; text-align: center; border: 1px solid #e6e6e6; }
+.table thead th { vertical-align: bottom; background: #d5dbe8; white-space: nowrap; font-weight: normal; border-bottom: 1px solid #e6e6e6; }
+.table thead th, .table thead td { border-bottom-width: 1px; }
+.table tbody { border-top: 1px solid #e6e6e6; }
+.table a { color: #3498da; }
+.table a.disabled { color: #a3a3a3; cursor: not-allowed; }
+
+.table-striped tbody tr:nth-of-type(even) { background-color: #f2f6f9; }
+.table-striped tbody tr:nth-of-type(even).selected { background: #deeafd; }
+
+ul, li { margin: 0px; padding: 0px; }
+
+.hide { display: none !important; }
+
+.btn-normal { width: 80px; height: 30px; color: #fff; font-size: 12px; border: 1px solid #616b88; border-radius: 3px; line-height: 28px; background-color: #616b88; text-align: center; vertical-align: middle; display: inline-block; cursor: pointer; padding: 0; }
+
+.page { padding: 0 15px; margin-top: 5px; font-size: 12px; color: #666; }
+.page .wrap_page_l { float: left; width: 130px; }
+.page .wrap_page_l .mt15 { margin-bottom: 15px; }
+.page .page-bar ul { float: right; }
+.page .page-bar .active a { cursor: default; border: 1px solid #d2d2d2; border-radius: 3px; }
+.page .page-bar li { list-style: none; display: inline-block; }
+.page .page-bar li:first-child > a { margin-left: 0px; }
+.page .page-bar li a { text-decoration: none; position: relative; float: left; margin-left: 5px; cursor: pointer; width: 30px; height: 30px; line-height: 30px; text-align: center; }
+.page .page-bar li a.btn { height: 30px; width: 80px; text-align: center; background: #dfe1e7; border-radius: 4px; }
+.page .page-bar li i { font-style: normal; color: #d44950; margin: 0px 4px; font-size: 12px; }
+
+/* Dropdown control */
+.selectBox-dropdown { max-width: 120px; max-height: 30px; position: relative; border: solid 1px #d2d2d2; text-decoration: none; text-align: left; color: #666; outline: none; vertical-align: middle; background: #fff; display: inline-block; cursor: default; }
+
+.selectBox-dropdown:focus { border-color: #aaa; }
+
+.selectBox-dropdown:focus .selectBox-arrow { border-color: #aaa; background-image: url(../images/order-up.png); }
+
+.selectBox-dropdown.selectBox-menuShowing { -moz-border-radius-bottomleft: 0; -moz-border-radius-bottomright: 0; -webkit-border-bottom-left-radius: 0; -webkit-border-bottom-right-radius: 0; border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+
+.selectBox-dropdown .selectBox-label { padding: 5px 15px; display: inline-block; white-space: nowrap; overflow: hidden; }
+
+.selectBox-dropdown .selectBox-arrow { position: absolute; top: 0; right: 0; width: 8px; height: 100%; padding: 0 18px; background: #fff url(../images/order-down.png) 50% 50% no-repeat; }
+
+/* Dropdown menu */
+.selectBox-dropdown-menu { position: absolute; z-index: 999; max-height: 200px; min-height: 1em; border: solid 1px #aaa; background: #FFF; -moz-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); overflow: auto; -webkit-overflow-scrolling: touch; }
+
+/* Inline control */
+.selectBox-inline { min-width: 150px; outline: none; border: solid 1px #BBB; background: #FFF; display: inline-block; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; overflow: auto; }
+
+.selectBox-inline:focus { border-color: #666; }
+
+/* Options */
+.selectBox-options, .selectBox-options li, .selectBox-options li a { color: #666; list-style: none; display: block; cursor: default; padding: 0; margin: 0; }
+
+.selectBox-options li a { line-height: 1.5; padding: 3px 15px; margin: 3px 1px; white-space: nowrap; overflow: hidden; background: 6px center no-repeat; }
+
+.selectBox-options li.selectBox-hover a { background-color: #EEE; }
+
+.selectBox-options li.selectBox-disabled a { color: #888; background-color: transparent; }
+
+.selectBox-options li.selectBox-selected a { background-color: #EEE; }
+
+.selectBox-options .selectBox-optgroup { color: #666; background: #EEE; font-weight: bold; line-height: 1.5; padding: 0 .3em; white-space: nowrap; }
+
+/* Disabled state */
+.selectBox.selectBox-disabled { color: #888 !important; }
+
+.selectBox-dropdown.selectBox-disabled .selectBox-arrow { opacity: .5; border-color: #666; }
+
+.selectBox-inline.selectBox-disabled { color: #888 !important; }
+
+.selectBox-inline.selectBox-disabled .selectBox-options a { background-color: transparent !important; }
+
+.pad15 { padding: 0 15px; }
+
+.w_100 { width: 100%; }
+
+.pad_tb_15 { padding-top: 15px !important; padding-bottom: 15px !important; }
+
+.pd_t_5 { padding-top: 5px !important; }
+
+.pd_tb_1 { padding-top: 1px !important; padding-bottom: 1px !important; }
+
+.main { font-size: 12px; color: #666666; width: 100%; margin: 0 auto; }
+
+.normal_block { padding: 10px 17px; background: #fff; margin-bottom: 17px; }
+.normal_block .normal_block_title { line-height: 28px; margin-bottom: 7px; }
+
+.top table td div { width: 160px; height: 85px; background: #f2f6f9; text-align: center; box-sizing: border-box; padding: 5px 0 0; }
+.top table td div p { padding-bottom: 5px; }
+.top table td div p span { font-size: 24px; }
+
+.w_big { font-size: 24px; }
+
+.fl { float: left; }
+
+.order_tips dd { margin: 15px 0; }
+.order_tips dd label { float: left; width: 64px; line-height: 27px; }
+.order_tips dd .wrap_status li { float: left; padding: 7px 9px; }
+.order_tips dd .wrap_status li.cur { background: #d5dbe8; }
+.order_tips dd.buyer .selectbox { height: 26px; line-height: 26px; float: left; border-radius: 0; }
+.order_tips dd.buyer .selectbox .selectbox_value { font-size: 12px; }
+.order_tips dd.buyer .buyer_write { width: 390px; height: 28px; border: 1px solid #d2d2d2; padding: 0px 10px; line-height: 28px; display: inline-block; float: left; border-left: none; }
+.order_tips dd.buy_time input { width: 143px; height: 28px; border: 1px solid #d2d2d2; padding: 0px 10px; line-height: 28px; display: inline-block; box-sizing: border-box; padding: 0 5px 0 12px; background: url(../images/date.png) no-repeat 117px 2px; }
+.order_tips dd.buy_time span { margin: 0 10px; }
+.order_tips dd.wrap_btns { margin-top: 30px; margin-bottom: 5px; }
+.order_tips dd.wrap_btns ul { text-align: center; }
+.order_tips dd.wrap_btns ul li { width: 83px; height: 30px; color: #fff; font-size: 12px; border: 1px solid #8793b2; border-radius: 3px; line-height: 28px; background-color: #8793b2; text-align: center; vertical-align: middle; display: inline-block; cursor: pointer; padding: 0; margin-right: 30px; }
+.order_tips dd.wrap_btns ul li:last-child { margin-right: 0; }
+
+.bottom { padding-bottom: 30px; background: #fff; }
+
+.wrap_table { width: 100%; overflow: scroll; height: auto; }
+.wrap_table .fixed-width { min-width: 1387px; }
+.wrap_table .fixed-width td { line-height: 1.4em; }
+
+.selectbox_list { width: 122px; top: 26px; }
+
+.selectbox_body li { font-size: 12px; }
+
+.standard-dropdown { float: left; }
+
+.selectBox { width: 120px !important; height: 28px !important; line-height: 18px; }
+
+.selectBox-label { width: 120px !important; }
+
+.btn-normal { width: 83px; height: 30px; color: #fff; font-size: 12px; border: 1px solid #8793b2; border-radius: 3px; line-height: 28px; background-color: #8793b2; text-align: center; vertical-align: middle; display: inline-block; cursor: pointer; padding: 0; }
+
+.ml15 { margin-left: 15px; border-left: 1px solid #d2d2d2 !important; }
+
+.title_big { font-size: 14px; line-height: 2em; }
+
+.resetBorder { border-left: 1px solid #d2d2d2 !important; margin-left: 0 !important; margin-right: 15px; }
+
+.list_select .selectBox { float: left; margin-right: 15px; }
+
+.recommend_tips dd { margin: 20px 0; }
+
+.tablebar { background: #fff; }
+.tablebar .tableImg { padding: 60px 0px; display: none; }
+.tablebar .tableImg img { display: block; width: 148px; height: 135px; margin: 0px auto; }
+
+.noshow { display: none; }

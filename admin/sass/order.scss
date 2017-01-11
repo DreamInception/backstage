@@ -1,0 +1,213 @@
+@import "config";
+@import "compass";
+$bg-color:#fff;
+$text-color: #666;
+$border-color:#d2d2d2;
+@import "table";
+@import "page";
+@import "selectbox";
+
+.pad15{
+  padding: 0 15px;
+}
+.w_100{
+  width: 100%;
+}
+.pad_tb_15{
+  padding-top:15px!important;
+  padding-bottom:15px!important;
+}
+.pd_t_5{
+  padding-top: 5px!important;
+}
+.pd_tb_1{
+  padding-top: 1px!important;
+  padding-bottom: 1px!important;
+}
+.main{
+  font-size: 12px;
+  color: $subTitleColor;
+  width: 100%;
+  margin: 0 auto ;
+}
+.normal_block{
+  padding: 10px 17px;
+  background: #fff;
+  margin-bottom: 17px;
+  .normal_block_title{
+    line-height: 28px;
+    margin-bottom: 7px
+  }
+}
+.top{
+  table{
+    //margin-left: -74px;
+    td{
+      //float: left;
+      //width: 25%;
+      div{
+        width: 160px;
+        height: 85px;
+        background: #f2f6f9;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 5px 0 0;
+
+        //margin-left: 74px;
+        p{
+          padding-bottom: 5px;
+          span{
+            font-size: 24px;
+          }
+        }
+      }
+    }
+  }
+}
+.w_big{
+  font-size: 24px;
+}
+.fl{
+  float: left;
+}
+.order_tips{
+  //padding-top: 5px;
+  dd{
+    margin: 15px 0;
+    label{
+      float: left;
+      width: 64px;
+      line-height: 27px;
+    }
+    .wrap_status{
+      li{
+        float: left;
+        padding: 7px 9px;
+        &.cur{
+          background: #d5dbe8;
+        }
+      }
+    }
+    &.buyer{
+      .selectbox{
+        height: 26px;
+        line-height: 26px;
+        float: left;
+        border-radius: 0;
+        .selectbox_value{
+          font-size: 12px;
+        }
+      }
+      .buyer_write{
+        @include iptcss($iptWidth:390px,$iptHeight:28px,$iptBorderWidth:1px);
+        float: left;
+        border-left:none;
+      }
+    }
+    &.buy_time{
+      input{
+        @include iptcss($iptWidth:143px,$iptHeight:28px,$iptBorderWidth:1px);
+        box-sizing: border-box;
+        padding: 0 5px 0 12px;
+        background: url(../images/date.png) no-repeat 117px 2px;
+      }
+      span{
+        margin: 0 10px;
+      }
+    }
+    &.wrap_btns{
+      margin-top: 30px;
+      margin-bottom: 5px;
+      ul{
+        //margin-left:350px;
+        text-align: center;
+        li{
+          @include radiusBtn(83px,30px,$btnMainBg,#fff,$btnMainBg,$angle);
+          margin-right: 30px;
+          &:last-child{
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+}
+.bottom{
+  padding-bottom: 30px;
+  background: #fff;
+}
+.wrap_table{
+  width:100%;
+  overflow: scroll;
+  height: auto;
+  .fixed-width{
+    min-width: 1387px;
+    td{
+      line-height: 1.4em;
+    }
+  }
+}
+.selectbox_list{
+  width: 122px;
+  top:26px
+}
+.selectbox_body{
+  li{
+    font-size: 12px;
+  }
+}
+.standard-dropdown{
+  float: left;
+}
+.selectBox{
+  width: 120px!important;
+  height: 28px!important;
+  line-height: 18px;
+}
+.selectBox-label{
+  width: 120px!important;
+
+}
+.btn-normal{
+  @include radiusBtn(83px,30px,$btnMainBg,#fff,$btnMainBg,$angle);
+}
+
+.ml15{
+  margin-left: 15px;
+  border-left:1px solid $borderColor!important;
+}
+.title_big{
+  font-size: 14px;
+  line-height: 2em;
+}
+.resetBorder{
+  border-left: 1px solid $borderColor!important;
+  margin-left: 0!important;
+  margin-right: 15px;
+}
+.list_select{
+  .selectBox{
+    float: left;
+    margin-right: 15px;
+  }
+}
+.recommend_tips{
+  dd{
+    margin: 20px 0;
+
+  }
+}
+.tablebar{
+  background: #fff;
+  .tableImg{
+    padding:60px 0px;
+    display: none;
+    img{
+      display: block;
+      width: 148px;
+      height: 135px;
+      margin: 0px auto;
+    }
+  }
+}
+.noshow{display: none;}

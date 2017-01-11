@@ -1,0 +1,63 @@
+@import "config";
+@import "compass";
+button{
+  &:hover{
+    @include opacity(.8);
+  }
+}
+.mask{
+  width: 100%;
+  height: 100%;
+  background-color:$fontColor;
+  position: fixed;
+  top:0;
+  @include opacity(0.2);
+  z-index: 99999;
+}
+.alertbar,.alertWin{
+  background: #fff;
+  border:1px solid $borderColor;
+  border-radius: 3px;
+  z-index: 999999;
+  position: fixed;
+  padding: 30px;
+  min-width:280px;
+  left: 50%;
+  top:50%;
+  color: #666;
+  .alernav{
+    height: 28px;
+    line-height: 28px;
+    font-size: 14px;
+    text-align: center;
+  }
+  .alertest,.alertitle{
+    font-size: 12px;
+    margin: 20px 0 30px;
+    text-align: center;
+  }
+  .alertest.titlewidth{
+    width:205px;
+    line-height: 30px;
+  }
+  .alertbtn,.buttons{
+    text-align: center;
+    width: 100%;
+    .confirmbtn,.confirm{
+      display: inline-block;
+      @include radiusBtn(80px,30px,$mainColor,#fff,$mainColor);
+      border-radius: 3px;
+      line-height: 25px;
+    }
+    .cancelbtn{
+      @include radiusBtn(80px,30px,#fff,#666,$borderColor);
+      border-radius: 3px;
+      line-height: 25px;
+      margin-left: 20px;
+
+    }
+    .confirmbtn.btnwidth{
+      width: 110px;
+    }
+  }
+}

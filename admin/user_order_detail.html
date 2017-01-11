@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户订单明细</title>
+    <link rel="stylesheet" href="js/plugins/datetimepicker/jquery.datetimepicker.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/order.css">
+    <link rel="stylesheet" href="css/user.css">
+    <script src="js/plugins/jquery/dist/jquery.min.js"></script>
+    <script src="js/plugins/vue/dist/vue.min.js"></script>
+    <script src="js/plugins/datetimepicker/jquery.datetimepicker.min.js"></script>
+    <script src="js/plugins/jquery.selectbox/jquery.selectBox.min.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/user.js"></script>
+    <script  src="js/vuePage.js"></script>
+    <script>
+        //用户订单明细 /order/selectOrderList
+       // var myUrl='json/user/selectOrderList.json';
+        var myUrl='/order/selectOrderList';
+        //获取用户信息 / userFront /getUserFrontInfo
+        // var userUrl = 'json/user/userInfo.json';
+           var userUrl = '/userFront/getUserFrontInfo';
+    </script>
+</head>
+
+<body>
+<div class="pad15">
+    <div class="main">
+        <!--top-->
+        <div class="wrap_table">
+            <table class="table table-striped fixed-width fixed-width-info w_100">
+                <thead>
+                    <tr>
+                        <th width="10%">用户名</th>
+                        <th width="6%">性别</th>
+                        <th width="6%">教龄</th>
+                        <th width="10%">手机号</th>
+                        <th>邮箱</th>
+                        <th width="8%">学段</th>
+                        <th width="8%">学科</th>
+                        <th width="8%">下载次数</th>
+                        <th width="10%">付费总额（元）</th>
+                        <th width="8%">用户等级</th>
+                        <th width="12%">注册时间</th>
+                        <th width="8%">状态</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr >
+                        <td>{{userInfo.username}}</td>
+                        <td v-if ="userInfo.sex==1">男</td>
+                        <td v-else>女</td>
+                        <td>{{userInfo.teachAge}}</td>
+                        <td>{{userInfo.mobile}}</td>
+                        <td>{{userInfo.email}}</td>
+                        <td>{{userInfo.phase}}</td>
+                        <td>{{userInfo.subject}}</td>
+                        <td>{{userInfo.downloadCount }}</td>
+                        <td>{{userInfo.totalPaid}}</td>
+                        <td>{{userInfo.level}}</td>
+                        <td>{{userInfo.createtime}}</td>
+                        <td v-if ="userInfo.state==1">正常</td>
+                        <td v-else>已禁用</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--mid-->
+        <dl class="order_tips normal_block">
+            <dt class="normal-title">订单明细：</dt>
+            <dd class="buyer clearfix">
+                <select name="standard-dropdown" class="standard-dropdown wide">
+                    <!--<option value="" selected="selected">全部</option>-->
+                    <option value="orderCode" selected="selected">订单编号</option>
+                    <option value="resourceName">资源名称</option>
+                </select>
+                <input type="text" class="buyer_write ml20">
+                <span class="btn-normal" id="search_info">搜索</span>
+            </dd>
+        </dl>
+        <!--bottom-->
+        <dl class="bottom">
+            <dd class="wrap_table">
+                <table class="table table-striped w_100">
+                    <thead>
+                        <tr>
+                            <th width="13%">订单编号</th>
+                            <th>资源名称</th>
+                            <th width="8%">距版权到期</th>
+                            <th width="10%">购买者</th>
+                            <th width="9%">购买时间</th>
+                            <th width="8%">资源价格（元）</th>
+                            <th width="7%">订单状态</th>
+                            <th width="9%">支付时间</th>
+                            <th width="8%">支付方式</th>
+                            <th width="8%">是否下载</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="d in dataList">
+                            <td>{{d.orderCode}}</td>
+                            <td>{{d.resourceName}}</td>
+                            <td>{{d.toCopyright}}</td>
+                            <td>{{d.loginName}} </td>
+                            <td>{{d.buyTime}}</td>
+                            <td>{{d.price}}</td>
+                            <td v-if="d.state == 1">未支付</td>
+                            <template v-else>
+                                <td v-if="d.state == 2">已支付</td>
+                                <td v-else>已取消</td>
+                            </template>
+                            <td>{{d.payTime}}</td>
+                            <td v-if="d.payType == 1">银联</td>
+                            <template v-else>
+                                <td v-if="d.payType == 2">微信</td>
+                                <td v-else>支付宝</td>
+                            </template>
+                            <td v-if="d.payType == 1">已下载</td>
+                            <td v-else>未下载</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </dd>
+            <div id="app" class="page">
+                <div class="wrap_page_l">
+                    <a href="#" class="btn-normal hide" v-if="all!=0">批量取消</a>
+                    <div class="page_tips" v-if="all!=0">共{{total_count}}条记录
+                        <span>,{{cur}}/{{all}}页</span>
+                    </div>
+                </div>
+                <vue-nav  :total_count="total_count" :cur="cur" :all="all" v-on:btnclick="listens" ></vue-nav>
+            </div>
+        </dl>
+    </div>
+</div>
+</body>
+</html>

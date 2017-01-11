@@ -1,0 +1,111 @@
+$bg-color:#fff;
+$text-color: #666;
+$border-color:#d2d2d2;
+$btn-bg-color: #8793b2;
+@import "table";
+@import "config";
+@import "_page";
+.container{
+    color: $text-color;
+    margin:16px;
+    background:$bg-color;
+    .content{
+        padding: 16px;
+    }
+    .scrollable{
+        overflow-x: auto;
+    }
+    &.wide{
+        width: 1020px;
+    }
+}
+.content-label{
+    width:40px;
+    display: block;
+    float: left;
+    line-height: 30px;
+}
+.inputbox{
+    height: 30px;
+    border: 1px solid $border-color;
+    padding: 3px 15px;
+}
+.searchbox{
+    width: 375px;
+    //margin-left: 16px;
+}
+.btns{
+    @include radiusBtn(80px,30px,$btn-bg-color,#fff,$btn-bg-color,8px);
+    border-radius: 4px;
+    &.default-btn{
+        background-color: $btn-bg-color;
+        border-color: $btn-bg-color;
+    }
+}
+.searchbtn{
+    @extend .btns;
+    margin-left: 16px;
+}
+.standard-dropdown{
+    width: 80px;
+    &.wide{
+        width: 120px;
+    }
+}
+.btn-group{
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+.order-option{
+    width: 80px;
+    border: 1px solid $border-color;
+    height: 30px;
+    display: block;
+    vertical-align: middle;
+    padding: 5px 0 5px 15px;
+    margin-right: 16px;
+    color: $text-color;
+    .order-group{
+        width: 8px;
+        display: inline-block;
+        height: 20px;
+        float:right;
+        padding-top: 3px;
+        margin-right: 16px;
+        span{
+            width: 8px;
+            height: 8px;
+            display: inline-block;
+            float:left;
+        }
+        .opder-up{
+            background: url(../images/order-up-active.png) no-repeat;
+        }
+        .opder-down{
+            background: url(../images/order-down.png) no-repeat;
+        }
+        &.desc{
+            .opder-up{
+                background: url(../images/order-up.png) no-repeat;
+            }
+            .opder-down{
+                background: url(../images/order-down-active.png) no-repeat;
+            }
+        }
+    }
+}
+.page{
+    @include pie-clearfix();
+}
+.pagination{
+  float: left;
+  padding-top: 0!important;
+}
+table{
+    a{  margin-right: 10px;}
+}
+.page_tips{
+  margin-top: 15px;
+}
+.noshow{display: none;}

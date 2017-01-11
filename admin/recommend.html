@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>推荐管理</title>
+    <link rel="stylesheet" href="js/plugins/datetimepicker/jquery.datetimepicker.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/alert.css">
+    <link rel="stylesheet" href="css/order.css">
+    <script src="js/plugins/jquery/dist/jquery.min.js"></script>
+    <script src="js/plugins/vue/dist/vue.min.js"></script>
+    <script src="js/plugins/jquery.selectbox/jquery.selectBox.min.js"></script>
+    <script src="js/plugins/linkage-selectBox.js"></script>
+    <script src="js/plugins/datetimepicker/jquery.datetimepicker.min.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/recommend.js"></script>
+    <script  src="js/vuePage.js"></script>
+    <script src="js/alertBox.js"></script>
+</head>
+<script>
+    var myUrl="/resource/selectResourceRecommendList.json"
+</script>
+<body>
+<div class="alertbar noshow" id="alertbar">
+    <p class="alertest titlewidth"><span class="warn"></span></p>
+    <div class="alertbtn">
+        <button class="confirmbtn" onclick="confirmDel(5)">确定</button>
+        <button class="cancelbtn" onclick="remv()">取消</button>
+    </div>
+</div>
+<article id="webbar" v-cloak="">
+    <div class="pad15">
+        <div class="main">
+            <!--top-->
+            <div class="top normal_block ">
+                <div class="title_big">推荐管理</div>
+            </div>
+            <!--mid-->
+            <dl class="order_tips recommend_tips normal_block">
+                <dd class="list_select clearfix">
+                    <select name="standard-dropdown" class="standard-dropdown wide first-select" id="selectbox1">
+                        <option value="" selected="selected">请选择学段</option>
+
+                    </select>
+                    <select name="standard-dropdown" class="standard-dropdown wide second-select" id="selectbox2">
+                        <option value="" selected="selected">请选择学科</option>
+
+                    </select>
+                    <select name="standard-dropdown" class="standard-dropdown wide third-select" id="selectbox3">
+                        <option value="" selected="selected">请选择教材版本</option>
+
+                    </select>
+                    <select name="standard-dropdown" class="standard-dropdown wide fourth-select" id="selectbox4">
+                        <option value="" selected="selected">请选择册次</option>
+
+                    </select>
+                </dd>
+                <dd class="buy_time clearfix">
+                    <label>推荐时间</label>
+                    <div class="fl">
+                        <input type="text" id="dates_start1" name="dates_start1" value="" placeholder="请选择起始时间">
+                        <span>至</span>
+                        <input type="text" id="dates_end1" name="dates_end1" value="" placeholder="请选择结束时间">
+                    </div>
+                </dd>
+                <dd class="buyer clearfix">
+                    <input class="buyer_write resetBorder" placeholder="请输入要搜索资源名"/>
+                    <button class="btn-normal" @click="refreshData">搜索</button>
+                </dd>
+            </dl>
+            <!--bottom-->
+            <div class="tablebar">
+                <dl class="bottom">
+                    <dd class="wrap_table table-wrapper">
+                        <table class="table table-striped fixed-width">
+                            <thead>
+                                <tr>
+                                    <th width="3%">
+                                        <input class="check-all" type="checkbox">
+                                    </th>
+                                    <th width="16%">资源名称</th>
+                                    <th  width="8%">版权</th>
+                                    <th width="6%">作者</th>
+                                    <th width="6%">上传者</th>
+                                    <th width="8%">上传时间</th>
+                                    <th width="8%">单价（元）</th>
+                                    <th width="6%">累计收益（元）</th>
+                                    <th width="8%">评分</th>
+                                    <th width="8%">浏览量</th>
+                                    <th width="8%">下载量</th>
+                                    <th width="6%">状态</th>
+                                    <th width="12%">操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="item in dataList" v-cloak="">
+                                    <td>
+                                        <input v-model="selectItem" :value="item.id" class="check-item" type="checkbox">
+                                    </td>
+                                    <td>{{item.resourceName}}</td>
+                                    <td>{{item.toCopyright}}</td>
+                                    <td>{{item.resourceMaker}}</td>
+                                    <td>{{item.createUserName}}</td>
+                                    <td>{{item.createDateTime}}</td>
+                                    <td>{{item.cost}}</td>
+                                    <td>{{item.accumEarnings}}</td>
+                                    <td>{{item.score}}</td>
+                                    <td>{{item.pageview}}</td>
+                                    <td>{{item.downloads}}</td>
+                                    <td>{{status(item.state)}}</td>
+                                    <td>
+                                        <a href="javascript:void(0);" @click="delMsg(item.id,'#alertbar')">取消推荐</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </dd>
+                    <div class="page">
+                        <div class="wrap_page_l">
+                            <a href="#" class="btn-normal Jsubmit mt15" v-if="all!=0" @click="lotData">批量取消</a>
+                            <div class="page_tips" v-if="all!=0">共{{total_count}}条记录,{{cur}}/{{all}}页</div>
+                        </div>
+                        <vue-nav :total_count="total_count" :cur="cur" :all="all" v-on:btnclick="listens" ></vue-nav>
+                    </div>
+                </dl>
+                <div class="tableImg">
+                    <img src="images/error.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+</body>
+</html>

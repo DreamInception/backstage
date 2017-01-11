@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户评论明细</title>
+    <link rel="stylesheet" href="js/plugins/datetimepicker/jquery.datetimepicker.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/alert.css">
+    <link rel="stylesheet" href="css/comment-manage.css"/>
+    <link rel="stylesheet" href="css/order.css">
+    <link rel="stylesheet" href="css/user.css">
+    <script src="js/plugins/jquery/dist/jquery.min.js"></script>
+    <script src="js/plugins/vue/dist/vue.min.js"></script>
+    <script src="js/plugins/datetimepicker/jquery.datetimepicker.min.js"></script>
+    <script src="js/plugins/jquery.selectbox/jquery.selectBox.min.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/user_comment_detail.js"></script>
+    <script  src="js/vuePage.js"></script>
+    <script src="js/alertBox.js"></script>
+    <script>
+        //用户订单明细 /order/selectOrderList
+        //var myUrl='json/user/commentList.json';
+        var myUrl='/comment/selectCommentList';
+        //获取用户信息 / userFront /getUserFrontInfo
+        //var userUrl = 'json/user/userInfo.json';
+        var userUrl = '/userFront/getUserFrontInfo';
+    </script>
+</head>
+
+<body>
+<div class="alertbar noshow" id="alertbar">
+    <p class="alertest"><span class="warn"></span></p>
+    <div class="alertbtn clearfix">
+        <button class="confirmbtn" onclick="confirmDel(0)">确认</button>
+        <button class="cancelbtn" onclick="remv()">取消</button>
+    </div>
+</div>
+<div class="pad15">
+    <div class="main">
+        <!--top-->
+        <div class="wrap_table">
+            <table class="table table-striped fixed-width fixed-width-info w_100">
+                <thead>
+                    <tr>
+                        <th width="10%">用户名</th>
+                        <th width="6%">性别</th>
+                        <th width="6%">教龄</th>
+                        <th width="10%">手机号</th>
+                        <th>邮箱</th>
+                        <th width="8%">学段</th>
+                        <th width="8%">学科</th>
+                        <th width="8%">下载次数</th>
+                        <th width="10%">付费总额（元）</th>
+                        <th width="8%">用户等级</th>
+                        <th width="12%">注册时间</th>
+                        <th width="8%">状态</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{userInfo.username}}</td>
+                        <td v-if ="userInfo.sex==1">男</td>
+                        <td v-else>女</td>
+                        <td>{{userInfo.teachAge}}</td>
+                        <td>{{userInfo.mobile}}</td>
+                        <td>{{userInfo.email}}</td>
+                        <td>{{userInfo.phase}}</td>
+                        <td>{{userInfo.subject}}</td>
+                        <td>{{userInfo.downloadCount }}</td>
+                        <td>{{userInfo.totalPaid}}</td>
+                        <td>{{userInfo.level}}</td>
+                        <td>{{userInfo.createtime}}</td>
+                        <td v-if ="userInfo.state==1">正常</td>
+                        <td v-else>已禁用</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--mid-->
+        <dl class="order_tips normal_block">
+            <dt class="normal-title">评论明细：</dt>
+            <!--<dd class="buyer clearfix">-->
+                <!--<select name="standard-dropdown" class="standard-dropdown wide">-->
+                    <!--<option value="0" selected="selected">全部</option>-->
+                    <!--<option value="1">订单编号</option>-->
+                    <!--<option value="2">资源名称</option>-->
+                <!--</select>-->
+                <!--<input type="text" class="buyer_write ml15">-->
+                <!--<span class="btn-normal">搜索</span>-->
+            <!--</dd>-->
+            <div class="order-options">
+                <div class="content">
+                    <span class="content-label">排序</span>
+                    <!--<div class="btn-group">-->
+                        <!--<a href="#" class="input order-option" id="scoreStr">-->
+                            <!--评分-->
+                            <!--<span class="icon order-group">-->
+                        <!--<span class="opder-up"></span>-->
+                        <!--<span class="opder-down"></span>-->
+                    <!--</span>-->
+                        <!--</a>-->
+                    <!--</div>-->
+                    <div class="btn-group">
+                        <a href="javascript:void(0)" class="input order-option" id="timeStr">
+                            时间
+                            <span class="icon order-group">
+                        <span class="opder-up"></span>
+                        <span class="opder-down"></span>
+                    </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </dl>
+        <!--bottom-->
+        <dl class="bottom">
+            <dd class="wrap_table">
+                <table class="table table-striped w_100">
+                    <thead>
+                        <tr >
+                            <th width="20%">评论时间</th>
+                            <th width="28%">评论资源名称</th>
+                            <th >评论内容</th>
+                            <th width="10%">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="d in dataList">
+                            <td>{{d.createTime}}</td>
+                            <td>{{d.resourceName}}</td>
+                            <td>{{d.content}}</td>
+                            <td><a href="javascript:void(0);" @click="delMsg(d.id,'#alertbar')" class="mar0">删除</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </dd>
+            <div id="app" class="page">
+                <div class="wrap_page_l">
+                    <a href="#" class="btn-normal hide" v-if="all!=0">批量取消</a>
+                    <div class="page_tips" v-if="all!=0">共{{total_count}}条记录
+                        <span>,{{cur}}/{{all}}页</span></div>
+                </div>
+                <vue-nav  :total_count="total_count" :cur="cur" :all="all" v-on:btnclick="listens" ></vue-nav>
+            </div>
+        </dl>
+    </div>
+</div>
+</body>
+</html>

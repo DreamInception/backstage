@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>电子词典-敏感词管理</title>
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/alert.css">
+    <link rel="stylesheet" href="css/elecAlert.css">
+    <link rel="stylesheet" href="css/electronic.css">
+    <script src="js/plugins/jquery/dist/jquery.min.js"></script>
+    <script src="js/plugins/vue/dist/vue.min.js"></script>
+    <script src="js/baseURL.js"></script>
+    <script  src="js/vuePage.js"></script>
+    <script src="js/electronic-hotWord.js"></script>
+    <script src="js/alertBox.js"></script>
+    <script src="js/elecAlertBox.js"></script>
+    <script>
+//        var myUrl ='json/electronic-hotWord.json';    //敏感词分页查询json
+//        var addUrl = "json/electronic-hotWord-addWord.json";   //添加敏感词json
+        var myUrl ='/sensitive/selectSensitiveList';    //敏感词分页查询json
+        var addUrl = '/sensitive/saveSensitive';   //添加敏感词json
+    </script>
+</head>
+<body>
+<div class="electronic">
+    <div class="main">
+        <!--top-->
+        <div class="top">
+            <a href="#" class="aSelected">敏感词管理</a>
+            <a href="electronic-keyWord.html">关键词管理</a>
+        </div>
+        <!--mid-->
+        <div class="hotWord-top clearfix">
+            <input type="text" class="add" placeholder="请输入需要填写的词"/>
+            <button class="btn-newAdd">新增</button>
+            <button class="btn-allAdd">批量新增</button>
+            <div class="allAdd-div">
+                <h4>词与词之间“回车换行”</h4>
+                <p>
+                    <textarea class="textarea"></textarea>
+                </p>
+                <p>
+                    <button class="btn-add-submit">确认</button>
+                    <button class="btn-add-del">取消</button>
+                </p>
+            </div>
+        </div>
+        <!--bottom-->
+        <dl class="bottom" id="table-body">
+            <dd class="wrap_table" >
+                <table class="table table-striped fixed-width" >
+                    <thead>
+                    <tr><!-- 
+                        <th width="33.33%"><span>编号</span></th> -->
+                        <th width="33.33%"><span>内容</span></th>
+                        <th width="33.33%"><span>操作</span></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="(d,index) in dataList"><!-- 
+                        <td><span>{{(cur-1)*page_size+index+1}}</span></td> -->
+                        <td><span>{{d.sensitive}}</span></td>
+                        <td>
+                            <span>
+                                <a href="javascript:;" class="alert-modify" @click="ele_sendMsg_center(d.id,'#alertDiv',d.sensitive)">修改</a>
+                                &nbsp;&nbsp;&nbsp;
+                                <a href="javascript:;" @click="delMsg(d.id,'#alertbar')">删除</a>
+                            </span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </dd>
+            <div class="page">
+                <div class="pagination content">
+                    <div class="page_tips" v-if="all!=0">共{{total_count}}条记录,{{cur}}/{{all}}页</div>
+                </div>
+                <vue-nav :total_count="total_count" :cur="cur" :all="all" v-on:btnclick="listens" ></vue-nav>
+            </div>
+        </dl>
+    </div>
+</div>
+<div class="coverDiv"></div>
+<div class="alertDiv noshow" id="alertDiv">
+    <h4>内容修改</h4>
+    <p>
+        <input type="text" class="wordChange"/>
+    </p>
+    <p class="clearfix">
+        <button class="alert-submit" onclick="ele_ConfirmDel()">确认</button>
+        <button class="alert-del" onclick="ele_Remv()">取消</button>
+    </p>
+    <img src="images/ele-close.png" alt="" class="eleImg" onclick="ele_Remv()"/>
+</div>
+<div class="alertbar noshow" id="alertbar">
+    <p class="alertest"><span class="warn">确定删除敏感词？</span></p>
+    <div class="alertbtn clearfix">
+        <button class="confirmbtn" onclick="confirmDel(3)">确认</button>
+        <button class="cancelbtn" onclick="remv()">取消</button>
+    </div>
+</div>
+</body>
+</html>

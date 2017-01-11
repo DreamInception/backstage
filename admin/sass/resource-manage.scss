@@ -1,0 +1,185 @@
+@import "config";
+@import "compass";
+@import "table";
+@import "page";
+@import "selectbox";
+@import "checkbox";
+@import "table";
+.out-padding{
+  //padding: 16px;
+  background: $bg;
+}
+.resource-manage-container{
+  width: 100%;
+  color: #666;
+  .f-fl{
+    float: left;
+  }
+  .f-fr{
+    float: right;
+  }
+  .choose-tabs{
+    width: 100%;
+    padding: 12.5px 0 12.5px 15px;
+    margin: 0 0 16px 0;
+    background: $whiteColor;
+    font-size: 14px;
+    li {
+      width: 58px;
+      height: 30px;
+      line-height: 30px;
+      float: left;
+      margin-right: 40px;
+      display: inline-block;
+      text-align: center;
+    }
+    .default-tab{
+      width: 100%;
+      height: 100%;
+      display: inline-block;
+      @include border-radius(3px);
+    }
+    .active-tab{
+      background: #cfd2db!important;
+      @include border-radius(3px);
+    }
+  }
+  .first-select-section {
+    width: 100%;
+    padding: 20px 0 0 15px;
+    margin: 0 0 16px 0;
+    background: $whiteColor;
+    .search-box {
+      //width: 375px;
+      //height: 30px;
+      //line-height: 30px;
+      margin: 0 20px;
+      text-indent: 10px;
+      @include iptcss(375px,30px,1px);
+    }
+    ul .ssl{
+      display: block;
+      padding-bottom: 20px;
+      label{
+        margin-right: 16px;
+        line-height: 30px;
+        float: left;
+      }
+      .selectBox-dropdown,input{
+        margin-right: 16px;
+      }
+      //.check-btn{
+      //  @include radiusBtn(83px,30px,#8793b2,#fff,#8793b2,3px);
+      //}
+      .dateInput{
+        float: left;
+        width: 143px;
+        height: 30px;
+        border: 1px solid $borderColor;
+        box-sizing: border-box;
+        padding: 0 5px 0 12px;
+        background: url(../images/date.png) no-repeat 117px 2px;
+        display: inline-block;
+      }
+      .search-btn {
+        @include radiusBtn(83px,30px,#8793b2,#fff,#8793b2,3px);
+      }
+
+    }
+
+  }
+  .second-select-section{
+    width: 100%;
+    padding: 18px 0 18px 15px;
+    margin: 0 0 16px 0;
+    background: $whiteColor;
+    span{
+      margin-right: 16px;
+      line-height: 28px;
+      float: left;
+    }
+    ul li{
+      display: inline-block;
+      float: left;
+      width: 80px;
+      height: 30px;
+      position: relative;
+      line-height: 30px;
+      text-indent: 20px;
+      margin-right: 16px;
+      border: solid 1px #d2d2d2;
+      .asc-enabled{
+        width: 7px;
+        height: 7px;
+        position: absolute;
+        top: 10px;
+        left: 55px;
+        background: url("../images/arrow_asc_enabled.png") no-repeat;
+      }
+      .asc-disabled{
+        width: 7px;
+        height: 7px;
+        position: absolute;
+        top: 10px;
+        left: 55px;
+        background: url("../images/arrow_asc_disabled.png") no-repeat;
+      }
+      .desc-enabled {
+        width: 7px;
+        height: 7px;
+        position: absolute;
+        bottom: 5px;
+        left: 55px;
+        background: url("../images/arrow_desc_enabled.png") no-repeat;
+      }
+      .desc-disabled {
+        width: 7px;
+        height: 7px;
+        position: absolute;
+        bottom: 5px;
+        left: 55px;
+        background: url("../images/arrow_desc_disabled.png") no-repeat;
+      }
+    }
+    .select-free-resource{
+      @include radiusBtn(100px,30px,#8793b2,#fff,#8793b2,3px);
+    }
+  }
+  .bottom{
+    padding-bottom: 30px;
+    background: #fff;
+  }
+  .rm_table{
+    width: 100%;
+    table{
+      width: 100%;
+    }
+  }
+  .page_tips{
+    margin-top: 15px;
+  }
+  .enabledLink {
+    color: #3498da;
+    margin-right: 10px;
+  }
+  .disabledLink {
+    color: #b4b7b8;
+    margin-right: 10px;
+  }
+  .batch-remove-button{
+    display: inline-block;
+    @include radiusBtn(80px,30px,#8793b2,#fff,#8793b2,3px);
+  }
+  .batch-off-button{
+    margin-left: 15px;
+    display: inline-block;
+    @include radiusBtn(80px,30px,#8793b2,#fff,#8793b2,3px);
+  }
+  .resourceNameLink{
+    color: #3498da;
+  }
+}
+.page .wrap_page_l{
+  width: 200px;
+}
+.noshow{display: none;}

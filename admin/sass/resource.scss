@@ -1,0 +1,482 @@
+@import "compass";
+@import "config";
+@import "page";
+$bgColor:#DFE5EA;
+$tbColor:#8893B3;
+$blueColor:#3799DA;
+$angle:3px;
+body {
+  padding: 0 16px;
+  min-width: 1024px;
+  font-size:14px;
+  color:$fontColor;
+  background: #f5f5f5;
+  line-height:normal;
+}
+label{
+  font-weight:normal;
+}
+ul,li,dl,dt,dd{
+  line-height:normal ;
+}
+a:link{
+  text-decoration:none;
+}
+.title {
+  line-height: 40px;
+}
+
+.resocProp {
+  width: 100%;
+  padding: 16px;
+  background: $bgColor;
+  .resocImg {
+    position:relative;
+    width: 200px;
+    height: 148px;
+    line-height: 148px;
+    background: #616A87;
+    margin-right: 16px;
+    float: left;
+    text-align: center;
+    .bg{
+      background:$whiteColor;
+      z-index:3;
+    }
+    div {
+      z-index:2;
+      @include radiusBtn(100px, 30px, $whiteColor,$fontColor,$whiteColor,$angle);
+      border:none 0;
+      padding: 0;
+      font-size: 14px;
+      position: relative;
+      background:none;
+      input[type="file"]{
+        width:100%;
+        height:100%;
+        position: absolute;
+        top:0;
+        left:0;
+        opacity:0;
+      }
+    }
+    img{
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+    }
+  }
+  dl {
+    dt {
+      margin: 6px 0 10px 0;
+      font-weight:normal;
+    }
+    dd {
+      margin-bottom: 10px;
+      font-size: 12px;
+    }
+  }
+}
+
+.resocDetail {
+  width: 60%;
+  padding-right: 16px;
+  margin-bottom: 15px;
+  & > a {
+    float: left;
+    @include radiusBtn(78px, 28px, $whiteColor, $fontColor,$borderColor,0);
+    padding:0;
+    font-size: 14px;
+    &.hover{
+      text-decoration: none;
+    }
+    &:first-child {
+      border-right: none 0;
+    }
+    &.active {
+      background: $tbColor;
+      color: $whiteColor;
+    }
+  }
+  ul {
+    float: right;
+    font-size: 12px;
+    li {
+      float: left;
+      line-height: 28px;
+      margin-right: 18px;
+      a {
+        color: $blueColor;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.resocVideo {
+  width: 100%;
+  .videoboxSm {
+    float: left;
+    width: 60%;
+    height:490px;
+    padding-right: 16px;
+    div.audio{
+      width:100%;
+      height:100%;
+    }
+    div.video {
+      width:100%;
+      height:100%;
+    }
+    div.docum{
+      width:100%;
+      max-height:800px;
+      overflow-y:auto;
+      ul{
+        margin-top:15px;
+        li{
+          margin-bottom:20px;
+          p{
+            padding:0;
+            margin:0;
+            text-indent: 2em;
+          }
+        }
+      }
+    }
+  }
+  .videoboxLg {
+    float: right;
+    width: 40%;
+    ul.videoDetail {
+      background: $bgColor;
+      padding: 8px 16px;
+      margin-bottom: 16px;
+      li {
+        margin-bottom: 16px;
+        div {
+          display: inline-block;
+          &.list {
+            width: 60%;
+            float: left;
+          }
+          &.time {
+            margin-right: 70px;
+          }
+        }
+        span {
+          display: inline-block;
+          width: 70px;
+          &.listTil {
+            float: left;
+          }
+          &.mR {
+            width: auto;
+            margin-right: 28px;
+          }
+          &.mRsm {
+            width: auto;
+            margin-right: 14px;
+          }
+        }
+        input[type="radio"] {
+          display:none;
+        }
+        label {
+          display: inline-block;
+          width: 86px;
+          padding-left:15px;
+          background:url("../images/radion.png") no-repeat left center;
+          &.labr{
+            width:60px;
+          }
+        }
+        input[type="radio"]:checked+label{
+             background:url("../images/radioy.png") no-repeat left center;
+        }
+        ul.list {
+          width: 70%;
+          float: left;
+          margin-left:4px;
+          li {
+            &:first-child {
+              margin-top: 0;
+            }
+            &:last-child {
+              margin-bottom: 0;
+            }
+            span {
+              width: 50px;
+              &.act{
+                width:auto;
+              }
+            }
+            input[type="text"] {
+              @include iptcss(92px, 28px);
+              border: 1px solid $borderColor;
+              margin-right: 6px;
+            }
+            div.mL {
+              display: inline-block;
+              margin: 16px 0 0 90px;
+            }
+            div.setTime{
+              width:100%;
+              height:24px;
+              padding-left: 24px;
+              background: url("../images/settime.png") no-repeat left center;
+              label{
+                width:auto;
+              }
+              input{
+                padding:0;
+                background:none;
+                border:none 0;
+                width:100px;
+                font-size:12px;
+                margin:0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+div.btn {
+  width: 60%;
+  padding-right: 16px;
+  text-align: center;
+  margin:70px 0 16px;
+  button {
+    @include radiusBtn(80px, 30px,$tbColor,$fontColor,$tbColor,$angle);
+    border:none 0;
+    color: $whiteColor;
+    margin: 0 5px;
+    padding:0;
+  }
+}
+
+.commentDtl{
+  width:60%;
+  padding-right:16px;
+  div.comdtlChange{
+    margin-bottom:20px;
+    a{
+      @include radiusBtn(118px, 28px, $whiteColor, $fontColor, $borderColor,0);
+      padding:0;
+      font-size: 14px;
+      float: left;
+      &:first-child {
+        border-right: none 0;
+      }
+      &.active {
+        background:$tbColor;
+        color: $whiteColor;
+      }
+    }
+  }
+  ul{
+    li{
+      margin-bottom:10px;
+      span.point{
+        float:left;
+        line-height: 30px;
+        margin-right:10px;
+        img{
+          margin:8px 0 0 6px;
+          float:right;
+        }
+      }
+      input[type='text'].score{
+        @include radiusBtn(43px,30px,$whiteColor,$fontColor,$borderColor,0);
+        cursor: auto;
+        margin-right:5px;
+      }
+    }
+  }
+    table{
+      margin-bottom: 20px;
+      text-align:center;
+      tr{
+        th,td{
+          padding:10px;
+          border-right:1px solid $borderColor;
+          border-bottom:1px solid $borderColor;
+          &:last-child{
+            border-right:none 0;
+          }
+        }
+        th{
+          background:$tbColor;
+          color:$whiteColor;
+          font-weight: normal;
+        }
+        td{
+          font-size: 12px;
+          background:$whiteColor;
+          a{
+            color:$blueColor;
+          }
+          &.active{
+            color:#D2D2D2;
+          }
+        }
+        &:last-child{
+          td{
+            border-bottom:none 0;
+          }
+        }
+      }
+    }
+}
+.page .page-bar li a.btn{
+  margin:0 8px 0 5px;
+}
+.page .page-bar ul{
+  text-align:center;
+  float:none;
+}
+.page .page-bar .active a{
+  background:$whiteColor;
+}
+a.btn:hover{
+  color:#888;
+}
+//弹出窗
+.winbox,.winboxOG{
+  display:none;
+  z-index:1993;
+  display:none;
+  font-size:14px;
+  position: absolute;
+  top:290px;
+  left:50%;
+  margin-left:-144px;
+  .win{
+    z-index:1993;
+    width:288px;
+    padding:0 30px;
+    height:191px;
+    background:#fff;
+    text-align: center;
+    @include border-radius(3px);
+    border:1px solid $borderColor;
+    &.winb{
+      position: relative;
+      padding:0 40px;
+      font-size:12px;
+      div{
+        padding:0;
+        margin-bottom:20px;
+        span{
+          line-height:30px;
+          float:left;
+        }
+        button{
+          @include radiusBtn(80px, 30px,$tbColor,$whiteColor,#d2d2d2,$angle);
+        }
+        img{
+          width:22px;
+          height:22px;
+          margin-top:3px;
+        }
+      }
+      .close{
+        width:24px;
+        height:22px;
+        position: absolute;
+        top:0;
+        right:0;
+        background:url("../images/closealert.png") no-repeat 100% 100%;
+      }
+      button{
+        margin:0;
+      }
+    }
+    &.winTop{
+      margin-top:145px;
+    }
+    p{
+      padding:30px 0px 20px;
+      &.winP{
+        font-size:14px;
+        padding:10px 30px 20px;
+      }
+    }
+    div{
+     // padding:0 35px;
+      button{
+        @include radiusBtn(80px, 30px,$whiteColor,$fontColor,#d2d2d2,$angle);
+        &.file{
+          position: relative;
+          background:$tbColor;
+          color: $whiteColor;
+          overflow: hidden;
+          float:left;
+          input{
+            width:100%;
+            height:100%;
+            position: absolute;
+            top:0;
+            left:0;
+            opacity:1;
+          }
+        }
+      }
+    }
+    div.webuploader-pick{
+      width:100%;
+      height:100%;
+      padding:0;
+      background:none;
+      position: absolute;
+      top:0;
+      left:0;
+      label{
+        display:block;
+        width:100%;
+        height:100%;
+        color:red;
+      }
+    }
+    button{
+      float:right;
+      margin:0 15px;
+      &#picker1,&#picker2,&#ctlBtn{
+        float:left;
+      }
+      @include radiusBtn(80px, 30px,$tbColor,$whiteColor,#d2d2d2,$angle);
+      position:relative;
+      input{
+        width:100%;
+        height:100%;
+        position: absolute;
+        top:0;
+        left:0;
+        opacity:0;
+      }
+    }
+  }
+
+}
+.winboxSp1,.winboxSp2,.winboxSp3,.winboxDm,.winboxOG,.winboxWd,.winboxWj{
+  position: fixed;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  background:rgba(136,136,136,0.2);
+  margin:0;
+  .win{
+    position:absolute;
+    top:290px;
+    left:50%;
+    margin-left:-144px;
+  }
+}
+
+

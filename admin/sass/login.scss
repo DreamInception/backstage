@@ -1,0 +1,104 @@
+@import "config";
+@import "compass";
+@import "alert";
+@import "public";
+body{
+  background:$bg;
+  color:$fontColor;
+}
+.header{
+  width: 100%;
+  height:65px;
+  position: absolute;
+  background: $mainColor;
+  padding:17px 0 0 30px;
+  top: 0;
+  left: 0;
+}
+.container{
+  clear: both;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+}
+.loginBrdr{
+  width: 400px;
+  height:400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin:-200px 0  0 -200px;
+}
+.loginTitle{
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 25px;
+  color:$mainColor;
+}
+.brdr{
+  background: #fff;
+  border: 1px solid $borderColor;
+  padding:25px 15px;
+}
+.title{
+  font-size: 26px;
+  text-align: center;
+  color:#193249;
+}
+.inputBrdr{
+  width: 338px;
+  border: 2px solid #eee;
+  height: 45px;
+  margin: 20px auto;
+  input{
+    @include iptcss(283px,41px);
+    float: right;
+  }
+}
+.username{
+  background: #eee inline_image("username.png") no-repeat 17px center;
+}
+.password{
+  background: #eee inline_image("password.png") no-repeat 13px center;
+}
+.errorBrdr{
+  display: none;
+  color: #f26e6e;
+  text-align: right;
+  margin-right: 15px;
+}
+.remember{
+  padding-left: 15px;
+  #rememberPwd{
+    margin-right: 10px;
+  }
+}
+.submitBtn{
+  @include radiusBtn(339px,40px,$mainColor,#fff,$mainColor,0);
+  margin:25px 0 20px  15px;
+  font-size: 20px;
+  line-height: 37px;
+  span{
+    padding: 0 10px;
+  }
+}
+.alertbar{
+  &.close{
+    display: none;
+  }
+  .close-alert{
+    width:23px;
+    height:23px;
+    display:block;
+    position:absolute;
+    top:0;
+    right:0;
+    background:url("../images/closealert.png");
+    cursor:pointer;
+  }
+  .alert-title{
+    font-size: 17px;
+    color: #616b88;
+    text-align: center;
+  }
+}

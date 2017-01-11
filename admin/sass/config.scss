@@ -1,0 +1,69 @@
+//background-color
+@import "compass/utilities/sprites";
+//$iconsPublic-spacing:80px;
+//@import "icons/*.png";
+
+//$mainColor
+$mainColor:#616b88;
+//subColor
+$subColor:#fbab2c;
+//$fontColor
+$fontColor:#888888;
+//titleColor
+$titleColor:#333333;
+//$subTitleColor
+$subTitleColor:#666666;
+//$tabColor
+$tabColor:#888888;
+//$greyColor
+$greyColor:#9aacb9;
+//$placeholder
+$placeholder:#b8c4ce;
+//$whiteColor
+$whiteColor:#fff;
+//$navHover
+$navHover:#dadee8;
+//$bg
+$bg:#eaecf2;
+//$sysBg
+$sysBg:#f2f6f9;
+//$quitColor
+$quitColor:#414f77;
+//$tabBg
+$tabBg:#dfe5ea;
+//$btnBg
+$btnBg:#cfd2db;
+$btnMainBg:#8793b2;
+//$borderColor
+$borderColor:#d2d2d2;
+//footerColor
+$footerColor:#84929f;
+//colorHover
+$colorHover:#e3e6ee;
+//radius
+$angle: 3px;
+//Common style text box
+@mixin iptcss($iptWidth:251px,$iptHeight:32px,$iptBorderWidth:0px){
+  width:$iptWidth;
+  height:$iptHeight;
+  border:$iptBorderWidth solid $borderColor;
+  padding: 0px 10px;
+  line-height:$iptHeight;
+  display: inline-block;
+}
+//The rounded button style of public by default
+@mixin radiusBtn($buttonWidth:80px,$buttonHeight:30px,$bg:$mainColor,$fC:$mainColor,$borderCol:$mainColor,$radius:$angle){
+  width:$buttonWidth;
+  height:$buttonHeight;
+  color:$fC;
+  font-size: 12px;
+  border:1px solid $borderCol;
+  border-radius: $radius;
+  line-height:($buttonHeight)-2;
+  background-color:$bg;
+  text-align: center;
+  vertical-align: middle;
+  display: inline-block;
+  cursor: pointer;
+  padding: 0;
+}

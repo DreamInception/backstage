@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>电子词典-关键词管理</title>
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/elecAlert.css">
+    <link rel="stylesheet" href="css/electronic.css">
+    <script src="js/plugins/jquery/dist/jquery.min.js"></script>
+    <script src="js/plugins/vue/dist/vue.min.js"></script>
+    <script src="js/plugins/jquery.selectbox/jquery.selectBox.min.js"></script>
+    <script  src="js/vuePage.js"></script>
+    <script src="js/electronic-keyWord.js"></script>
+    <script type="text/javascript">
+        var userid="";   //用户Id
+        var myUrl='/search/selectSearchList';    //关键词分页查询
+        //var phaseUrl="json/electronic-keyWord-phaseSubject.json";  //学科学段查询
+        var phaseUrl="/catagory/queryUserDataAuthority";  //学科学段查询
+    </script>
+</head>
+<body>
+<div class="electronic" id="vue">
+    <div class="main">
+        <!--top-->
+        <div class="top">
+            <a href="electronic-hotWord.html" >敏感词管理</a>
+            <a href="#" class="aSelected">关键词管理</a>
+        </div>
+        <!--mid-->
+        <div class="kewWord-top">
+            <div class="phasesubject clearfix">
+                <p class="clearfix" >
+                    <span class="phase">学段选择</span>
+                    <select name="standard-dropdown" class="standard-dropdown wide" id="phase">
+                        <option value="0" selected="selected">请选择学段</option>
+                        <option v-for="phase in phaseDatalist" :value="phase.dataAuthorityId" v-if="phase.deep==1">{{phase.name}}</option>
+                    </select>
+                </p>
+                <p class="clearfix">
+                    <span class="subject">学科选择</span>
+                    <select name="standard-dropdown" class="standard-dropdown wide" id="subject">
+                        <option value="0" selected="selected">请选择学科</option>
+                        <option v-for="subject in subjectDatalist" :value="subject.dataAuthorityId" v-if="subject.deep==2">{{subject.name}}</option>
+                    </select>
+                </p>
+            </div>
+            <div class="addDiv clearfix">
+                <input type="text" class="add" placeholder="请输入关键字"/>
+                <button class="btn-newAdd">搜索</button>
+            </div>
+        </div>
+        <!--bottom-->
+        <dl class="bottom" id="table-content">
+            <dd class="wrap_table" >
+                <table class="table table-striped fixed-width">
+                    <thead>
+                    <tr><!-- 
+                        <th width="16.66%"><span>编号</span></th> -->
+                        <th width="16.66%"><span>所属学段</span></th>
+                        <th width="16.66%"><span>所属学科</span></th>
+                        <th width="16.66%"><span>关键词内容</span></th>
+                        <th width="16.66%"><span>搜索次数</span></th>
+                        <th width="16.66%"><span>操作</span></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="(d,index) in dataList"><!-- 
+                        <td><span>{{(cur-1)*page_size+index+1}}</span></td> -->
+                        <td><span :data-id="d.phaseId">{{d.phase}}</span></td>
+                        <td><span :data-id="d.subjectId">{{d.subject}}</span></td>
+                        <td><span>{{d.searchContent}}</span></td>
+                        <td><span>{{d.searchCount}}</span></td>
+                        <td><span><a href="javascript:;">推荐</a></span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </dd>
+            <div class="page">
+                <div class="pagination content">
+                    <div class="page_tips" v-if="all!=0">共{{total_count}}条记录,{{cur}}/{{all}}页</div>
+                </div>
+                <vue-nav :total_count="total_count" :cur="cur" :all="all" v-on:btnclick="listens" ></vue-nav>
+            </div>
+        </dl>
+    </div>
+</div>
+</body>
+</html>

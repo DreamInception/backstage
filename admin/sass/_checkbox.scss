@@ -1,0 +1,23 @@
+input[type="checkbox"] {
+  display: none;
+}
+[id^="checkbox-1-"] + label,[id^="checkbox-2-"] + label {
+  border: 1px solid #d2d2d2;
+  display: inline-block;
+  position: relative;
+  width: 15px;
+  height: 15px;
+  font-size: 0px;
+  background-color: #fff;
+  background-size: 100% 100%;
+}
+[id^="checkbox-1-"]:checked + label:after,[id^="checkbox-2-"]:checked + label:after {
+  content: '\2715';
+  position: absolute;
+  top:3px;
+  width: 12px;
+  height: 8px;
+  left: 0px;
+  background: url("../images/cbGou.png") no-repeat;
+  background-size: 100% 100%;
+}

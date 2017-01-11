@@ -1,0 +1,27 @@
+.fixed-width-info { min-width: 1185px !important; }
+
+.fixed-width-detail { min-width: 1027px !important; }
+
+.fixed-width-comment { min-width: 940px !important; }
+
+.buyer_write { margin: auto 15px !important; }
+
+.normal-title { margin-top: 7px; }
+
+.order_tips { padding-bottom: 5px; }
+
+.list_tabs li { float: left; padding: 10px 13px; font-size: 14px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
+.list_tabs li.cur { background: #cfd2db; }
+.list_tabs li a { width: 100%; height: 100%; display: inline-block; }
+
+.order_tips dd.buyer .buyer_write { border-left: 1px solid #d2d2d2; margin-left: 0 !important; }
+
+.user_manage .table { width: 100%; }
+
+.order_tips dd.buyer .ml20 { margin-left: 15px !important; border-left: 1px solid #d2d2d2 !important; }
+
+.order-options { padding: 15px 0; }
+
+.order-option { line-height: 20px; }
+
+.mar0 { margin: 0; }

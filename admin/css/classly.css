@@ -1,0 +1,72 @@
+@charset "UTF-8";
+/* CSS 2015年06月23日 */
+*{ padding:0; margin:0; border: 0; list-style: none;outline:none; transition:background-color ease 200ms}
+html,body{ font-size:14px;font-family: "Microsoft YaHei","Apple LiGothic Medium","NSimSun","FontAwesome","Arial" !important;}
+input,textarea,button{ outline:none;font-size:14px;font-family: "Microsoft YaHei","Apple LiGothic Medium","NSimSun","FontAwesome","Arial" !important;}
+
+a, address, b, big, blockquote, body, center, cite, code, dd, del, div, dl, dt, em, fieldset, font, form, h1, h2, h3, h4, h5, h6, html, i, iframe, img, ins, label, legend,li, ol, p, pre, small, span, strong, u, ul, var, button {
+    margin: 0;
+    padding: 0;
+	list-style:none;
+}
+form, article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary ,ul ,li  {
+    display: block
+}
+/*选中文字颜色*/
+/*::selection{background:#ff9300;color:#FFF;}
+::-moz-selection{background:#ff9300;color:#FFF;}
+::-webkit-selection{background:#ff9300;color:#FFF;}
+::-ms-selection{background:#ff9300;color:#FFF;}
+::-o-selection{background:#ff9300;color:#FFF;}
+
+button{
+	cursor:pointer;
+}
+.webview {
+	width: 1144px;
+	margin: 0 auto;
+}*/
+/* 主题颜色 */
+/*.webthemebg {
+	background-color: #f4f4f4 !important;
+}*/
+
+
+/* 基础类---------------------- */
+/*.fl{ float:left;display: inline;}
+.fr{ float:right;display: inline;}
+.fn{ float:none}
+.clear_both{ clear:both;}
+.clear_left{ clear:left;}
+.clear_right{ clear:right;}
+.clearfix {zoom: 1;clear: both;}
+.clearfix:after {clear: both;content: " ";display: block;height: 0;overflow: hidden; line-height:0;}
+
+.overflow_hidden{ overflow:hidden}
+
+.margin_auto{ margin-left: auto; margin-right: auto;}
+
+.m10{ margin:10px;}
+.mt10{ margin-top:10px;}
+.mr10{ margin-right:10px;}
+.mb10{ margin-bottom:10px;}
+.ml10{ margin-left:10px;}
+
+.p10{ padding:10px;}
+.pt10{ padding-top:10px;}
+.pr10{ padding-right:10px;}
+.pb10{ padding-bottom:10px;}
+.pl10{ padding-left:10px;}
+
+.line_h25{ line-height:25px;}*/
+
+/* 默认边线样式 */
+/*.border{ border:#e5e5e5 solid 1px;}
+.font_size12{ font-size:12px}
+.font_size18{ font-size:18px}
+.font_bold{ font-weight: bold;}
+
+.color_blue{ color:#4a90e2}
+.color_orange{ color:#f5a623}
+.color_grey{ color:#9b9b9b}
+*/

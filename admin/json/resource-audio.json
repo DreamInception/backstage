@@ -1,0 +1,40 @@
+{
+  "result": 0,
+  "message": "",
+  "data": [
+    {
+      "coverPath": "images/building.png",
+      "copyright": "9天",
+      "resourceLevel": "1",
+      "createUserName": "1",
+      "resourceMaker": "1",
+      "type": "1 > 1",
+      "isChinese": "1",
+      "isFree": "2",
+      "resourceFormatValue": "1",
+      "property": "初中 > 语文 > 北师大版 > 七年级下册 > 第一单元 生活况味",
+      "id": "1",
+      "resourceSource": "1",
+      "useTarget": "1",
+      "isAloneRes": "1",
+      "isElectron": "1",
+      "examplePath": "1",
+      "knowledge": "词法 > 名词 > 可数名词及其单复数 > 规则复数变化形式",
+      "timeCount": 1,
+      "cost": 1,
+      "filePath": "1",
+      "resourceName": "红楼梦",
+      "makerIntro": "1",
+      "createDateTime": "2016-12-19 16:51:51",
+      "resourceDes": "1",
+      "isOriginal": "1",
+      "fileSize": "11",
+      "freeStartTime":"2016-12-19 16:51:51",
+      "freeEndTime":"2016-12-19 16:51:52",
+      "resourceFormatI" :"9",
+      "salecost":"0.5",
+      "score":"5",
+      "accumEarnings":"10"
+    }
+  ]
+}

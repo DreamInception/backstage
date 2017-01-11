@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户管理</title>
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/systems.css">
+    <link rel="stylesheet" href="js/plugins/datetimepicker/jquery.datetimepicker.css">
+    <script src="js/plugins/jquery/dist/jquery.min.js"></script>
+    <script src="js/plugins/vue/dist/vue.min.js"></script>
+    <script src="js/plugins/datetimepicker/jquery.datetimepicker.min.js"></script>
+    <script src="js/plugins/jquery.selectbox/jquery.selectBox.min.js"></script>
+    <script src="js/vuePage.js"></script>
+    <script src="js/alertBox.js"></script>
+    <script src="js/system_user.js"></script>
+
+    <script>
+        //系统管理-用户管理
+        var myUrl='/user/selectUserListForPage';
+    </script>
+</head>
+<body>
+<article id="webbar">
+    <div class="tab clearfix">
+        <ul>
+            <li><a href="systems-user.html" class="active">用户管理</a></li>
+            <li><a href="systems-power.html">权限管理</a></li>
+            <li><a href="systems-working.html">操作日志</a></li>
+        </ul>
+    </div>
+    <div class="tab">
+        <div class="linebar clearfix">
+            <input type="text" name="userName" id="userName" value="" class="inpclass inpwidth" placeholder="请输入要搜索的用户名">
+            <button class="check-btn">查询</button>
+        </div>
+    </div>
+    <div class="linebar adduser">
+        <button class="check-btn"><a href="systems-add-user.html">新增用户</a></button>
+    </div>
+    <div class="tablebar">
+        <div class="wrap_table">
+            <table class="table table-striped fixed-width" width="100%">
+                <thead>
+                <tr>
+                    <th width="6%"><input type="checkbox" name="check"></th>
+                    <th width="7%">ID</th>
+                    <th width="7%">用户名</th>
+                    <th width="10%">姓名</th>
+                    <th width="16%">角色</th>
+                    <th width="8%">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-if="dataList.length>0" v-for="(d,index) in dataList">
+                    <td>
+                        <input type="checkbox" :id="index+1" :data-value="d.id" /></label>
+                    </td>
+                    <td>{{d.id}}</td>
+                    <td>{{d.loginName}}</td>
+                    <td>{{d.username}}</td>
+                    <td>{{d.roleName}}</td>
+                    <td>
+                        <a href="javascript:void(0);" @click="edit(d.id)">编辑</a>
+                        <a href="javascript:void(0);" @click="query(d.id)">查看</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="linebar">
+            <button class="check-btn" onclick="pldel()">批量删除</button>
+            <button class="check-btn" onclick="batchReset()">批量重置</button>
+        </div>
+        <div id="app" class="page">
+            <div class="wrap_page_l">
+                <div class="page_tips">共{{total_count}}条记录,{{cur}}/{{all}}页</div>
+            </div>
+            <vue-nav :total_count="total_count" :cur="cur" :all="all" v-on:btnclick="listens" ></vue-nav>
+        </div>
+    </div>
+</article>
+</body>
+</html>

@@ -1,0 +1,45 @@
+body { background: #eaecf2; color: #888888; }
+
+.header { width: 100%; height: 65px; position: absolute; background: #616b88; z-index: 999; left: 0; top: 0; *zoom: 1; }
+.header:after { content: ""; display: table; clear: both; }
+
+.footer { width: 100%; height: 57px; position: absolute; z-index: 999; left: 0; bottom: 0; text-align: center; line-height: 57px; }
+.footer span { padding: 0 5px; }
+
+.maincontent { width: 100%; margin-top: 65px; background: #eaecf2; }
+
+.left { width: 188px; position: absolute; background: #fff; color: #666666; z-index: 998; left: 0; top: 65px; overflow: auto; }
+
+.right { margin-left: 204px; top: 16px; margin-right: 16px; position: relative; }
+
+.logo { float: left; padding: 15px 0 0 35px; }
+
+.headlist { float: right; }
+.headlist li { float: left; padding-right: 20px; line-height: 65px; color: #fff; }
+.headlist li a { color: #fff; }
+.headlist li.quit { width: 64px; height: 65px; background: #414f77 url("../images/nav/quit.png") no-repeat center; cursor: pointer; }
+.headlist li.quit a { height: 100%; width: 100%; display: block; }
+.headlist .change a { color: #fff; cursor: pointer; background: url(../images/change.png) no-repeat top left; padding-left: 20px; }
+
+.logorht { height: 30px; }
+.logorht li { float: right; text-align: center; padding-right: 10px; }
+.logorht li span { float: left; display: block; height: 30px; line-height: 25px; margin: 25px 0; }
+.logorht li a { display: block; float: left; line-height: 30px; padding-left: 26px; color: #888888; }
+.logorht li a:hover { color: #616b88; }
+
+.navList li { display: block; height: 50px; line-height: 50px; text-align: left; border-bottom: 1px solid #d2d2d2; cursor: pointer; font-size: 14px; }
+.navList li a { width: 100%; display: inline-block; padding-left: 40px; }
+.navList li span img { float: left; margin-top: 17px; margin-right: 10px; }
+.navList li:hover, .navList li.selectedNav { background: #dadee8; }
+
+.shown { display: block !important; }
+
+.arrow { width: 10px; height: 50px; background: #616b88; position: absolute; top: 50%; left: -10px; margin-top: -25px; z-index: 999; border-top-right-radius: 3px; border-bottom-right-radius: 3px; line-height: 50px; font-family: "SimSun"; text-align: center; color: #fff; cursor: pointer; }
+.arrow:hover { filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=85); opacity: 0.85; }
+
+.switch .left { display: none; }
+.switch .right { margin-left: 10px; }
+
+.small_width { max-width: 120px; }
+
+.shown { display: block; }

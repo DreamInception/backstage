@@ -1,0 +1,52 @@
+
+ul,li{
+    margin: 0px;
+    padding: 0px;
+}
+.page-bar{
+    float: right;
+}
+.page-bar li{
+    list-style: none;
+    display: inline-block;
+}
+.page-bar li:first-child>a {
+   margin-left: 0px
+}
+.page-bar a{
+    text-decoration: none;
+    position: relative;
+    float: left;
+    margin-left: 5px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+.page-bar a.btn{
+    height: 30px;
+    width: 80px;
+    text-align: center;
+    background: #dfe1e7;
+    border-radius: 4px;
+}
+.page-bar .active a{
+    cursor: default;
+    border:1px solid #d2d2d2;
+    border-radius: 3px ;
+}
+.page-bar i{
+    font-style:normal;
+    color: #d44950;
+    margin: 0px 4px;
+    font-size: 12px;
+}
+.page_tips{
+    float: left;
+
+}
+.page{
+    font-size: 12px;
+    color: #666;
+}

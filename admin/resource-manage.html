@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>后台管理-首页</title>
+    <!--<base href="/backstage/admin/"/>-->
+    <link rel="stylesheet" href="css/public.css"/>
+    <link rel="stylesheet" href="css/alert.css">
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/resource-manage.css">
+    <link rel="stylesheet" href="js/plugins/datetimepicker/jquery.datetimepicker.css">
+    <script src="js/plugins/jquery/dist/jquery.min.js"></script>
+    <script src="js/plugins/vue/dist/vue.min.js"></script>
+    <script src="js/plugins/jquery.selectbox/jquery.selectBox.min.js"></script>
+    <script src="js/plugins/linkage-selectBox.js"></script>
+    <script src="js/resource-manage.js"></script>
+    <script src="js/vuePage.js"></script>
+    <script src="js/plugins/datetimepicker/jquery.datetimepicker.min.js"></script>
+    <script src="js/alertBox.js"></script>
+    <script>
+        var selectBoxUrl = "/catagory/getCategory";
+        var requestQueryList = "/resource/getresourceInfo";
+//        var requestQueryList = "json/resource-check-list.json";
+    </script>
+</head>
+<body class="out-padding">
+<div class="alertWin noshow" id="alertWin">
+    <p class="alertitle"><span class="hint"></span></p>
+    <div class="buttons clearfix">
+        <button class="confirm" onclick="confirmClose()">确认</button>
+    </div>
+</div>
+<div class="alertbar noshow" id="alertbar">
+    <p class="alertest"><span class="warn"></span></p>
+    <div class="alertbtn clearfix">
+        <button class="confirmbtn" onclick="confirmDel(0)">确认</button>
+        <button class="cancelbtn" onclick="remv()">取消</button>
+    </div>
+</div>
+<article class="resource-manage-container" id="resource-manage-container" v-cloak>
+    <ul class="choose-tabs clearfix">
+        <li><a href="javascript:;" class="default-tab active-tab" @click="requestTabData(0)">全部</a></li>
+        <li><a href="javascript:;" class="default-tab" @click="requestTabData(2)">已发布</a></li>
+        <li><a href="javascript:;" class="default-tab" @click="requestTabData(1)">待发布</a></li>
+        <li><a href="javascript:;" class="default-tab" @click="requestTabData(3)">已下架</a></li>
+    </ul>
+    <section class="first-select-section clearfix">
+        <ul>
+            <li class="clearfix ssl">
+                <div class="dropdown f-fl">
+                    <select name="standard-dropdown" class="standard-dropdown wide first-select" id="selectbox1">
+                        <option  value="" selected="selected">请选择学段</option>
+                    </select>
+                </div>
+                <div class="dropdown f-fl">
+                    <select name="standard-dropdown" class="standard-dropdown wide second-select" id="selectbox2">
+                        <option value="" selected="selected">请选择学科</option>
+                    </select>
+                </div>
+                <div class="dropdown f-fl">
+                    <select name="standard-dropdown" class="standard-dropdown wide third-select" id="selectbox3">
+                        <option value=""  selected="selected">请选择教材版本</option>
+                    </select>
+                </div>
+                <div class="dropdown f-fl">
+                    <select name="standard-dropdown" class="standard-dropdown wide fourth-select" id="selectbox4">
+                        <option  value="" selected="selected">请选择册次</option>
+                    </select>
+                </div>
+            </li>
+            <li class="clearfix ssl">
+                <label class="dl-mgl f-fl">时间设置</label>
+                <input type="text" id="dates_start1" name="dates_start1" class="dateInput f-fl" value="" placeholder="请选择起始时间">
+                <label class="f-fl">至</label>
+                <input type="text" id="dates_end1" name="dates_end1" class="dateInput f-fl" value="" placeholder="请选择结束时间">
+            </li>
+            <li class="clearfix ssl">
+                <div class="dropdown f-fl" id="role">
+                    <select name="standard-dropdown" class="standard-dropdown wide allSelect" id="allSelect">
+                        <option value="0" selected="selected">全部</option>
+                        <option value="1">上传者</option>
+                        <option value="2">作者</option>
+                    </select>
+                </div>
+                <input type="text" class="search-box f-fl" placeholder="请输入搜索的内容" v-model="searchInput"/>
+                <button class="search-btn f-fl" @click="requestSearchData">搜索</button>
+            </li>
+        </ul>
+    </section>
+    <section class="second-select-section">
+        <span>排序</span>
+        <ul class="clearfix">
+            <li>
+                <span>下载</span>
+                <a href="javascript:;" :class="{'asc-enabled': downAscClick,'asc-disabled': !downAscClick}" @click="sortItems('download')"></a>
+                <a href="javascript:;" :class="{'desc-enabled': downDescClick,'desc-disabled': !downDescClick}" @click="sortItems('download')"></a>
+            </li>
+            <li>
+                <span>浏览</span>
+                <a href="javascript:;" :class="{'asc-enabled': browseAscClick,'asc-disabled': !browseAscClick}" @click="sortItems('browse')"></a>
+                <a href="javascript:;" :class="{'desc-enabled': browseDescClick,'desc-disabled': !browseDescClick}" @click="sortItems('browse')"></a>
+            </li>
+            <li>
+                <span>价格</span>
+                <a href="javascript:;" :class="{'asc-enabled': priceAscClick,'asc-disabled': !priceAscClick}" @click="sortItems('price')"></a>
+                <a href="javascript:;" :class="{'desc-enabled': priceDescClick,'desc-disabled': !priceDescClick}" @click="sortItems('price')"></a>
+            </li>
+            <li>
+                <span>评分</span>
+                <a href="javascript:;" :class="{'asc-enabled': gradeAscClick,'asc-disabled': !gradeAscClick}" @click="sortItems('grade')"></a>
+                <a href="javascript:;" :class="{'desc-enabled': gradeDescClick,'desc-disabled': !gradeDescClick}" @click="sortItems('grade')"></a>
+            </li>
+
+            <button class="select-free-resource" @click="filterFree">筛选免费资源</button>
+        </ul>
+    </section>
+<section class="bottom">
+        <div class="wrap_table rm_table">
+            <table class="table table-striped table-striped fixed-width ">
+            <!--<table class="table-data table-striped" cellspacing="0" cellpadding="0">-->
+                <thead>
+                <tr>
+                    <th width="3.36%">
+                        <input type="checkbox" id="checkbox-2-0" @click="selectAll"/><label for="checkbox-2-0"></label>
+                    </th>
+                    <th width="22.7%">资源名称</th>
+                    <th width="4.38%">版权</th>
+                    <th width="5.7%">作者</th>
+                    <th width="5.7%">上传者</th>
+                    <th width="8.36%">上传时间</th>
+                    <th width="6.53%">单价（元）</th>
+                    <th width="9.18%">累计收益（元）</th>
+                    <th width="4.5%">评分</th>
+                    <th width="5.7%">浏览量</th>
+                    <th width="5.7%">下载量</th>
+                    <th width="5.7%">状态</th>
+                    <th width="12.75%">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="(item,index) in tableList">
+                    <td>
+                        <input type="checkbox" :id="cbInputId+(index+1)" :data-value="item.id" :data-status="item.status" @click="selectEach"/><label :for="cbInputId+(index+1)"></label>
+                    </td>
+                    <td>
+                        <a href="#" class="resourceNameLink" v-if="item.status == 2">{{item.resourceName}}</a>
+                        <span v-else>{{item.resourceName}}</span>
+                    </td>
+                    <td>{{item.copyright}}</td>
+                    <td>{{item.resourceMaker}}</td>
+                    <td>{{item.createUserName}}</td>
+                    <td>{{item.createDateTime}}</td>
+                    <td>{{item.cost}}</td>
+                    <td>{{item.accumEarnings}}</td>
+                    <td>{{item.score}}</td>
+                    <td>{{item.pageview}}</td>
+                    <td>{{item.downloads}}</td>
+                    <td>
+                        <span v-if="item.status == '1'">待发布</span>
+                        <span v-else-if="item.status == '2'">已发布</span>
+                        <span v-else>已下架</span>
+                    </td>
+                    <td>
+                        <span>
+                            <a href="#" class="enabledLink" v-if="item.status == 2"  @click="offMsg(item.id,'#alertbar')">下架</a>
+                            <a href="#" class="disabledLink" v-else>下架</a>
+                        </span>
+                        <span>
+                             <a :href="audioUrl+item.id" class="enabledLink" v-if="item.resourceFormatId == 9">编辑</a>
+                             <a :href="documentUrl+item.id" class="enabledLink"  v-else-if="item.resourceFormatId == 10">编辑</a>
+                             <a :href="videoUrl+item.id" class="enabledLink" v-else-if="item.resourceFormatId == 12">编辑</a>
+                        </span>
+                        <span>
+                            <a href="#" class="enabledLink" v-if="item.status == 2 && item.isRecommend == 0"  @click="recommend(item.id,'#alertbar')">推荐</a>
+                            <a href="#" class="enabledLink" v-else-if="item.status == 2 && item.isRecommend == 1"  @click="nonrecommend(item.id,'#alertbar')">取消推荐</a>
+                            <a href="#" class="disabledLink" v-else>推荐</a>
+                        </span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div id="app" class="page">
+            <div class="wrap_page_l">
+                <button class="batch-remove-button" @click="batchDelete('#alertbar')"  v-if="all!=0">批量删除</button>
+                <button class="batch-off-button" @click="batchOff('#alertbar')"  v-if="all!=0">批量下架</button>
+                <div class="page_tips" v-if="all!=0">共{{total_count}}条记录,{{cur}}/{{all}}页</div>
+            </div>
+            <vue-nav :total_count="total_count" :cur="cur" :all="all" v-on:btnclick="listens" ></vue-nav>
+        </div>
+    </section>
+</article>
+<script>
+
+</script>
+</body>
+</html>

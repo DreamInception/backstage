@@ -1,0 +1,512 @@
+[
+  {
+    "id": "xiaoxue",
+    "parentId": "00",
+    "name": "小学",
+    "deep": "1"
+  },
+  {
+    "id": "xiaoxue-shuxue",
+    "parentId": "xiaoxue",
+    "name": "数学",
+    "deep": "2"
+  },
+  {
+    "id": "xiaoxue-shuxue-beishidaban",
+    "parentId": "xiaoxue-shuxue",
+    "name": "北师大版",
+    "deep": "3"
+  },
+  {
+    "id": "xiaoxue-shuxue-nandaban",
+    "parentId": "xiaoxue-shuxue",
+    "name": "南大版",
+    "deep": "3"
+  },
+  {
+    "id": "xiaoxue-shuxue-beishidaban-yinianjishangce",
+    "parentId": "xiaoxue-shuxue-beishidaban",
+    "name": "一年级上册",
+    "deep": "4"
+  },
+  {
+    "id": "xiaoxue-shuxue-beishidaban-yinianjixiace",
+    "parentId": "xiaoxue-shuxue-beishidaban",
+    "name": "一年级下册",
+    "deep": "4"
+  },
+  {
+    "id": "xiaoxue-shuxue-beishidaban-ernianjishangce",
+    "parentId": "xiaoxue-shuxue-beishidaban",
+    "name": "二年级上册",
+    "deep": "4"
+  },
+  {
+    "id": "xiaoxue-shuxue-beishidaban-ernianjixiace",
+    "parentId": "xiaoxue-shuxue-beishidaban",
+    "name": "二年级下册",
+    "deep": "4"
+  },
+  {
+    "id": "xiaoxue-shuxue-beishidaban-sannianjishangce",
+    "parentId": "xiaoxue-shuxue-beishidaban",
+    "name": "三年级上册",
+    "deep": "4"
+  },
+  {
+    "id": "xiaoxue-shuxue-beishidaban-sannianjixiace",
+    "parentId": "xiaoxue-shuxue-beishidaban",
+    "name": "三年级下册",
+    "deep": "4"
+  },
+  {
+    "id": "xiaoxue-shuxue-beishidaban-sinianjishangce",
+    "parentId": "xiaoxue-shuxue-beishidaban",
+    "name": "四年级上册",
+    "deep": "4"
+  },
+  {
+    "id": "xiaoxue-shuxue-beishidaban-sinianjixiace",
+    "parentId": "xiaoxue-shuxue-beishidaban",
+    "name": "四年级下册",
+    "deep": "4"
+  },
+  {
+    "id": "xiaoxue-shuxue-beishidaban-wunianjishangce",
+    "parentId": "xiaoxue-shuxue-beishidaban",
+    "name": "五年级上册",
+    "deep": "4"
+  },
+  {
+    "id": "xiaoxue-shuxue-beishidaban-wunianjixiace",
+    "parentId": "xiaoxue-shuxue-beishidaban",
+    "name": "五年级下册",
+    "deep": "4"
+  },
+  {
+    "id": "xiaoxue-shuxue-beishidaban-liunianjishangce",
+    "parentId": "xiaoxue-shuxue-beishidaban",
+    "name": "六年级上册",
+    "deep": "4"
+  },
+  {
+    "id": "xiaoxue-daodeyufazhi",
+    "parentId": "xiaoxue",
+    "name": "道德与法治",
+    "deep": "2"
+  },
+  {
+    "id": "xiaoxue-daodeyufazhi-beishidaban",
+    "parentId": "xiaoxue-daodeyufazhi",
+    "name": "北师大版",
+    "deep": "3"
+  },
+  {
+    "id": "xiaoxue-daodeyufazhi-beishidaban-yinianjixiace",
+    "parentId": "xiaoxue-daodeyufazhi-beishidaban",
+    "name": "一年级下册",
+    "deep": "4"
+  },
+  {
+    "id": "xiaoxue-daodeyufazhi-beishidaban-ernianjixiace",
+    "parentId": "xiaoxue-daodeyufazhi-beishidaban",
+    "name": "二年级下册",
+    "deep": "4"
+  },
+  {
+    "id": "xiaoxue-daodeyufazhi-beishidaban-sannianjixiace",
+    "parentId": "xiaoxue-daodeyufazhi-beishidaban",
+    "name": "三年级下册",
+    "deep": "4"
+  },
+  {
+    "id": "xiaoxue-daodeyufazhi-beishidaban-sinianjixiace",
+    "parentId": "xiaoxue-daodeyufazhi-beishidaban",
+    "name": "四年级下册",
+    "deep": "4"
+  },
+  {
+    "id": "xiaoxue-daodeyufazhi-beishidaban-wunianjixiace",
+    "parentId": "xiaoxue-daodeyufazhi-beishidaban",
+    "name": "五年级下册",
+    "deep": "4"
+  },
+  {
+    "id": "xiaoxue-daodeyufazhi-beishidaban-liunianjixiace",
+    "parentId": "xiaoxue-daodeyufazhi-beishidaban",
+    "name": "六年级下册",
+    "deep": "4"
+  },
+  {
+    "id": "xiaoxue-yuwen",
+    "parentId": "xiaoxue",
+    "name": "语文",
+    "deep": "2"
+  },
+  {
+    "id": "xiaoxue-yuwen-beishidaban",
+    "parentId": "xiaoxue-yuwen",
+    "name": "北师大版",
+    "deep": "3"
+  },
+  {
+    "id": "xiaoxue-yuwen-beishidaban-sannianjixiace",
+    "parentId": "xiaoxue-yuwen-beishidaban",
+    "name": "三年级下册",
+    "deep": "4"
+  },
+  {
+    "id": "xiaoxue-shuxue-beishidaban-liunianjixiace",
+    "parentId": "xiaoxue-shuxue-beishidaban",
+    "name": "六年级下册",
+    "deep": "4"
+  },
+  {
+    "id": "xiaoxue-yuwen-beishidaban-sinianjixiace",
+    "parentId": "xiaoxue-yuwen-beishidaban",
+    "name": "四年级下册",
+    "deep": "4"
+  },
+  {
+    "id": "xiaoxue-yuwen-beishidaban-wunianjixiace",
+    "parentId": "xiaoxue-yuwen-beishidaban",
+    "name": "五年级下册",
+    "deep": "4"
+  },
+  {
+    "id": "xiaoxue-yingyu",
+    "parentId": "xiaoxue",
+    "name": "英语",
+    "deep": "2"
+  },
+  {
+    "id": "xiaoxue-yingyu-beishidaban",
+    "parentId": "xiaoxue-yingyu",
+    "name": "北师大版",
+    "deep": "3"
+  },
+  {
+    "id": "xiaoxue-yingyu-beishidaban-sannianjishangce",
+    "parentId": "xiaoxue-yingyu-beishidaban",
+    "name": "三年级上册",
+    "deep": "4"
+  },
+  {
+    "id": "xiaoxue-yingyu-beishidaban-sannianjixiace",
+    "parentId": "xiaoxue-yingyu-beishidaban",
+    "name": "三年级下册",
+    "deep": "4"
+  },
+  {
+    "id": "xiaoxue-yingyu-beishidaban-sinianjishangce",
+    "parentId": "xiaoxue-yingyu-beishidaban",
+    "name": "四年级上册",
+    "deep": "4"
+  },
+  {
+    "id": "xiaoxue-yingyu-beishidaban-sinianjixiace",
+    "parentId": "xiaoxue-yingyu-beishidaban",
+    "name": "四年级下册",
+    "deep": "4"
+  },
+  {
+    "id": "xiaoxue-yingyu-beishidaban-wunianjishangce",
+    "parentId": "xiaoxue-yingyu-beishidaban",
+    "name": "五年级上册",
+    "deep": "4"
+  },
+  {
+    "id": "xiaoxue-yingyu-beishidaban-wunianjixiace",
+    "parentId": "xiaoxue-yingyu-beishidaban",
+    "name": "五年级下册",
+    "deep": "4"
+  },
+  {
+    "id": "xiaoxue-yingyu-beishidaban-liunianjishangce",
+    "parentId": "xiaoxue-yingyu-beishidaban",
+    "name": "六年级上册",
+    "deep": "4"
+  },
+  {
+    "id": "xiaoxue-yingyu-beishidaban-liunianjixiace",
+    "parentId": "xiaoxue-yingyu-beishidaban",
+    "name": "六年级下册",
+    "deep": "4"
+  },
+  {
+    "id": "chuzhong",
+    "parentId": "00",
+    "name": "初中",
+    "deep": "1"
+  },
+  {
+    "id": "chuzhong-yuwen",
+    "parentId": "chuzhong",
+    "name": "语文",
+    "deep": "2"
+  },
+  {
+    "id": "chuzhong-yuwen-beishidaban",
+    "parentId": "chuzhong-yuwen",
+    "name": "北师大版",
+    "deep": "3"
+  },
+  {
+    "id": "chuzhong-yuwen-beishidaban-qinianjixiace",
+    "parentId": "chuzhong-yuwen-beishidaban",
+    "name": "七年级下册",
+    "deep": "4"
+  },
+  {
+    "id": "chuzhong-shuxue",
+    "parentId": "chuzhong",
+    "name": "数学",
+    "deep": "2"
+  },
+  {
+    "id": "chuzhong-shuxue-beishidaban",
+    "parentId": "chuzhong-shuxue",
+    "name": "北师大版",
+    "deep": "3"
+  },
+  {
+    "id": "chuzhong-shuxue-beishidaban-qinianjishangce",
+    "parentId": "chuzhong-shuxue-beishidaban",
+    "name": "七年级上册",
+    "deep": "4"
+  },
+  {
+    "id": "chuzhong-shuxue-beishidaban-qinianjixiace",
+    "parentId": "chuzhong-shuxue-beishidaban",
+    "name": "七年级下册",
+    "deep": "4"
+  },
+  {
+    "id": "chuzhong-shuxue-beishidaban-banianjishangce",
+    "parentId": "chuzhong-shuxue-beishidaban",
+    "name": "八年级上册",
+    "deep": "4"
+  },
+  {
+    "id": "chuzhong-shuxue-beishidaban-banianjixiace",
+    "parentId": "chuzhong-shuxue-beishidaban",
+    "name": "八年级下册",
+    "deep": "4"
+  },
+  {
+    "id": "chuzhong-shuxue-beishidaban-jiunianjishangce",
+    "parentId": "chuzhong-shuxue-beishidaban",
+    "name": "九年级上册",
+    "deep": "4"
+  },
+  {
+    "id": "chuzhong-shuxue-beishidaban-jiunianjixiace",
+    "parentId": "chuzhong-shuxue-beishidaban",
+    "name": "九年级下册",
+    "deep": "4"
+  },
+  {
+    "id": "chuzhong-yingyu",
+    "parentId": "chuzhong",
+    "name": "英语",
+    "deep": "2"
+  },
+  {
+    "id": "chuzhong-yingyu-beishidaban",
+    "parentId": "chuzhong-yingyu",
+    "name": "北师大版",
+    "deep": "3"
+  },
+  {
+    "id": "chuzhong-yingyu-beishidaban-qinianjishangce",
+    "parentId": "chuzhong-yingyu-beishidaban",
+    "name": "七年级上册",
+    "deep": "4"
+  },
+  {
+    "id": "chuzhong-yingyu-beishidaban-qinianjixiace",
+    "parentId": "chuzhong-yingyu-beishidaban",
+    "name": "七年级下册",
+    "deep": "4"
+  },
+  {
+    "id": "chuzhong-yingyu-beishidaban-banianjishangce",
+    "parentId": "chuzhong-yingyu-beishidaban",
+    "name": "八年级上册",
+    "deep": "4"
+  },
+  {
+    "id": "chuzhong-yingyu-beishidaban-banianjixiace",
+    "parentId": "chuzhong-yingyu-beishidaban",
+    "name": "八年级下册",
+    "deep": "4"
+  },
+  {
+    "id": "chuzhong-yingyu-beishidaban-jiunianjiquanyice",
+    "parentId": "chuzhong-yingyu-beishidaban",
+    "name": "九年级全一册",
+    "deep": "4"
+  },
+  {
+    "id": "chuzhong-wuli",
+    "parentId": "chuzhong",
+    "name": "物理",
+    "deep": "2"
+  },
+  {
+    "id": "chuzhong-wuli-beijingban",
+    "parentId": "chuzhong-wuli",
+    "name": "北京版",
+    "deep": "3"
+  },
+  {
+    "id": "chuzhong-wuli-beijingban-banianjiquanyice",
+    "parentId": "chuzhong-wuli-beijingban",
+    "name": "八年级全一册",
+    "deep": "4"
+  },
+  {
+    "id": "chuzhong-wuli-beishidaban",
+    "parentId": "chuzhong-wuli",
+    "name": "北师大版",
+    "deep": "3"
+  },
+  {
+    "id": "chuzhong-wuli-beishidaban-banianjishangce",
+    "parentId": "chuzhong-wuli-beishidaban",
+    "name": "八年级上册",
+    "deep": "4"
+  },
+  {
+    "id": "chuzhong-shengwu",
+    "parentId": "chuzhong",
+    "name": "生物",
+    "deep": "2"
+  },
+  {
+    "id": "chuzhong-shengwu-beishidaban",
+    "parentId": "chuzhong-shengwu",
+    "name": "北师大版",
+    "deep": "3"
+  },
+  {
+    "id": "chuzhong-shengwu-beishidaban-banianjixiace",
+    "parentId": "chuzhong-shengwu-beishidaban",
+    "name": "八年级下册",
+    "deep": "4"
+  },
+  {
+    "id": "chuzhong-daodeyufazhi",
+    "parentId": "chuzhong",
+    "name": "道德与法治",
+    "deep": "2"
+  },
+  {
+    "id": "chuzhong-daodeyufazhi-beishidaban",
+    "parentId": "chuzhong-daodeyufazhi",
+    "name": "北师大版",
+    "deep": "3"
+  },
+  {
+    "id": "chuzhong-daodeyufazhi-beishidaban-qinianjixiace",
+    "parentId": "chuzhong-daodeyufazhi-beishidaban",
+    "name": "七年级下册",
+    "deep": "4"
+  },
+  {
+    "id": "chuzhong-daodeyufazhi-beishidaban-banianjixiace",
+    "parentId": "chuzhong-daodeyufazhi-beishidaban",
+    "name": "八年级下册",
+    "deep": "4"
+  },
+  {
+    "id": "chuzhong-daodeyufazhi-beishidaban-jiunianjiquanyice",
+    "parentId": "chuzhong-daodeyufazhi-beishidaban",
+    "name": "九年级全一册",
+    "deep": "4"
+  },
+  {
+    "id": "gaozhong",
+    "parentId": "00",
+    "name": "高中",
+    "deep": "1"
+  },
+  {
+    "id": "gaozhong-yingyu",
+    "parentId": "gaozhong",
+    "name": "英语",
+    "deep": "2"
+  },
+  {
+    "id": "gaozhong-yingyu-beishidaban",
+    "parentId": "gaozhong-yingyu",
+    "name": "北师大版",
+    "deep": "3"
+  },
+  {
+    "id": "gaozhong-yingyu-beishidaban-bixiumokuai1",
+    "parentId": "gaozhong-yingyu-beishidaban",
+    "name": "必修模块1",
+    "deep": "4"
+  },
+  {
+    "id": "gaozhong-yingyu-beishidaban-bixiumokuai2",
+    "parentId": "gaozhong-yingyu-beishidaban",
+    "name": "必修模块2",
+    "deep": "4"
+  },
+  {
+    "id": "gaozhong-yingyu-beishidaban-bixiumokuai3",
+    "parentId": "gaozhong-yingyu-beishidaban",
+    "name": "必修模块3",
+    "deep": "4"
+  },
+  {
+    "id": "gaozhong-yingyu-beishidaban-bixiumokuai4",
+    "parentId": "gaozhong-yingyu-beishidaban",
+    "name": "必修模块4",
+    "deep": "4"
+  },
+  {
+    "id": "gaozhong-yingyu-beishidaban-bixiumokuai5",
+    "parentId": "gaozhong-yingyu-beishidaban",
+    "name": "必修模块5",
+    "deep": "4"
+  },
+  {
+    "id": "gaozhong-yingyu-beishidaban-xuanxiumokuai6",
+    "parentId": "gaozhong-yingyu-beishidaban",
+    "name": "选修模块6",
+    "deep": "4"
+  },
+  {
+    "id": "gaozhong-yingyu-beishidaban-xuanxiumokuai7",
+    "parentId": "gaozhong-yingyu-beishidaban",
+    "name": "选修模块7",
+    "deep": "4"
+  },
+  {
+    "id": "gaozhong-yingyu-beishidaban-xuanxiumokuai8",
+    "parentId": "gaozhong-yingyu-beishidaban",
+    "name": "选修模块8",
+    "deep": "4"
+  },
+  {
+    "id": "gaozhong-yingyu-beishidaban-xuanxiumokuai9",
+    "parentId": "gaozhong-yingyu-beishidaban",
+    "name": "选修模块9",
+    "deep": "4"
+  },
+  {
+    "id": "gaozhong-yingyu-beishidaban-xuanxiumokuai10",
+    "parentId": "gaozhong-yingyu-beishidaban",
+    "name": "选修模块10",
+    "deep": "4"
+  },
+  {
+    "id": "gaozhong-yingyu-beishidaban-xuanxiumokuai11",
+    "parentId": "gaozhong-yingyu-beishidaban",
+    "name": "选修模块11",
+    "deep": "4"
+  }
+]

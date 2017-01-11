@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/public.css"/>
+    <link rel="stylesheet" href="css/alert.css">
+    <script src="js/plugins/jquery/dist/jquery.min.js"></script>
+    <script src="js/alertBox.js"></script>
+    <style>
+.noshow{
+    display: none;}
+    </style>
+</head>
+<body >
+<div class="alertbar noshow" id="alertbar">
+    <div class="alernav">
+        内容修改
+        <div class="close" onclick="remv()"></div>
+    </div>
+    <p class="alertest"><span class="warn">模板是系统正常运行的关键，请谨慎操作！</span></p>
+    <div class="alertbtn clearfix">
+        <button class="confirmbtn" onclick="">继续</button>
+        <button class="cancelbtn" onclick="remv()">取消</button>
+    </div>
+</div>
+    <span class="alert" onclick="sendMsg_center(52)">点击显示alertBox</span>
+</body>
+</html>

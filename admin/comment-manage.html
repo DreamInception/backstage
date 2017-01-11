@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>评论管理</title>
+    <link rel="stylesheet" href="css/public.css"/>
+    <link rel="stylesheet" href="css/alert.css">
+    <link rel="stylesheet" href="css/comment-manage.css"/>
+    <script src="js/plugins/jquery/dist/jquery.min.js"></script>
+    <script src="js/plugins/vue/dist/vue.min.js"></script>
+    <script src="js/plugins/jquery.selectbox/jquery.selectBox.min.js"></script>
+    <script src="js/vuePage.js"></script>
+    <script src="js/comment-manage.js"></script>
+    <script src="js/alertBox.js"></script>
+    <script>
+	    var userid="";
+//	    评论列表/comment/selectCommentList
+//        var myUrl='json/comment-manage.json';
+        var myUrl='/comment/selectCommentList';
+    </script>
+</head>
+<body>
+<div class="alertbar noshow" id="alertbar">
+    <p class="alertest"><span class="warn"></span></p>
+    <div class="alertbtn clearfix">
+        <button class="confirmbtn" onclick="confirmDel(0)">确认</button>
+        <button class="cancelbtn" onclick="remv()">取消</button>
+    </div>
+</div>
+    <div class="search container">
+        <div class="content">
+            <div class="btn-group">
+                <input class="inputbox searchbox" type="text" placeholder="请输入搜索内容">
+                <button class="searchbtn">搜索</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="order-options container">
+        <div class="content">
+            <span class="content-label">排序</span>
+            <!--<div class="btn-group">-->
+                <!--<a href="#" class="input order-option" id="scoreStr">-->
+                    <!--评分-->
+                    <!--<span class="icon order-group">-->
+                        <!--<span class="opder-up"></span>-->
+                        <!--<span class="opder-down"></span>-->
+                    <!--</span>-->
+                <!--</a>-->
+            <!--</div>-->
+            <div class="btn-group">
+                <a href="javascript:void(0)" class="input order-option" id="timeStr">
+                    时间
+                    <span class="icon order-group">
+                        <span class="opder-up"></span>
+                        <span class="opder-down"></span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="table-content container">
+        <div class="scrollable table-wrapper">
+            <table class="table table-striped fixed-width w100">
+                <thead>
+                    <tr>
+                        <th width="3%">
+                            <input class="check-all" type="checkbox">
+                        </th><!-- 
+                        <th width="5%">编号</th> -->
+                        <th width="35%">评论内容</th>
+                        <th width="10%">资源名称</th>
+                        <th >评论时间</th>
+                        <th width="10%">评论用户</th>
+                        <th width="8%">用户状态</th>
+                        <th width="12%">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="d,index in dataList">
+                        <td>
+                            <input v-model="selectItem" :value="d.id" class="check-item" type="checkbox">
+                        </td><!-- 
+                        <td>{{(cur-1)*page_size+index+1}}</td> -->
+                        <td>{{d.content}}</td>
+                        <td>{{d.resourceName}}</td>
+                        <td>{{d.createTime}}</td>
+                        <td>{{d.username}}</td>
+                        <td>{{status(d.userState)}}</td>
+                        <td>
+                            <a href="javascript:void(0);" @click="delMsg(d.id,'#alertbar')">删除评论</a>
+                            <a href="javascript:void(0);" v-if="d.userState=='0'" class="disabled">禁用</a>
+                            <a href="javascript:void(0);" v-if="d.userState=='1'" @click="sendMsg(d.userid,'#alertbar',d.username)">禁用</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="page">
+            <div class="pagination content">
+                <a href="#" class="default-btn btns Jsubmit" v-if="all!=0">批量删除</a>
+                <div class="page_tips" v-if="all!=0">共{{total_count}}条记录,{{cur}}/{{all}}页</div>
+            </div>
+            <vue-nav :total_count="total_count" :cur="cur" :all="all" v-on:btnclick="listens"  ></vue-nav>
+        </div>
+    </div>
+</body>
+</html>

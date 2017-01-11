@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>权限管理查看</title>
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/systems.css">
+    <script src="js/plugins/jquery/dist/jquery.min.js"></script>
+    <script src="js/urlParam.js"></script>
+    <script src="js/permission.js"></script>
+    <script type="text/javascript">
+    
+    var addUrl='/roleManagerRest/saveRole';
+    var updateUrl="/roleManagerRest/updateRole";
+    var id = $.getUrlParam("id");
+    var flag = $.getUrlParam("flag");
+    $(function(){ 
+		queryList();
+		$("#role-id").val(id);
+	});  
+    function queryList(){
+	    $.ajax({
+	    	type: "post",
+	    	url:"/roleManagerRest/queryTreeList",
+	    	async:false,
+	    	data:{},
+	    	dataType:"json",
+	    	success:function(data,status) {	
+	    		var json = eval('(' + data.resultJson + ')'); 
+				var srt=$("#tree_show");
+				var content='';
+				
+				for(var i=0;i<json.length;i++){
+                    content+="<dl class=\"perm-item\">";
+                    if(json[i].name == "个人中心") {
+                        content += "<dt><input type=\"checkbox\" class=\"ifc\" name=\"item-" + json[i].id + "\" id=\"item-" + json[i].id + "\" checked='checked'style='display: none;' ><label  for=\"item-" + json[i].id + "\"><span style=\"font-size: 14px; color: #000;\">" + json[i].name + "</span></label></dt>";
+                    }else{
+                        content += "<dt><input type=\"checkbox\" class=\"ifc\" name=\"item-" + json[i].id + "\" id=\"item-" + json[i].id + "\"><label  for=\"item-" + json[i].id + "\"><span style=\"font-size: 14px; color: #000;\">" + json[i].name + "</span></label></dt>";
+                    }
+                    if(json[i].operateList.length>0){
+                        for(var j=0;j<json[i].operateList.length;j++){
+                            if(json[i].operateList[j].name == "默认选中"){
+                                content+="<dd><input type=\"checkbox\" parentid=\"item-"+json[i].id+"\" class=\"ifc\" name=\"operate-"+json[i].operateList[j].id+"\" id=\"operate-"+json[i].operateList[j].id+"\"  checked='checked'style='display: none;'><label for=\"operate-"+json[i].operateList[j].id+"\" >"+json[i].operateList[j].name+"</label></dd>";
+                            }else {
+                                content += "<dd><input type=\"checkbox\" parentid=\"item-" + json[i].id + "\" class=\"ifc\" name=\"operate-" + json[i].operateList[j].id + "\" id=\"operate-" + json[i].operateList[j].id + "\"><label for=\"operate-" + json[i].operateList[j].id + "\" >" + json[i].operateList[j].name + "</label></dd>";
+                            }
+                        }
+                        content+="</br>";
+                    }
+                    if(json[i].secList.length>0){
+                        for(var k=0;k<json[i].secList.length;k++){
+
+                            content+="<dd>";
+                            content+="<div class=\"col\">";
+                            content+="<dl>";
+                            content+="<dt>";
+                            content+="<input type=\"checkbox\" parentid=\"item-"+json[i].id+"\" class=\"ifc\" name=\"item-"+json[i].secList[k].id+"\" id=\"item-"+json[i].secList[k].id+"\"><label for=\"item-"+json[i].secList[k].id+"\"><span style=\"font-size: 14px; color: #000;\">"+json[i].secList[k].name+"</span></label>";
+                            content+="</dt>";
+                            if(json[i].secList[k].operateList.length>0){
+                                for(var l=0;l<json[i].secList[k].operateList.length;l++){
+                                    content+="<dd>";
+                                    content+="<input type=\"checkbox\" parentid=\"item-"+json[i].secList[k].id+"\" class=\"ifc\" name=\"operate-"+json[i].secList[k].operateList[l].id+"\" id=\"operate-"+json[i].secList[k].operateList[l].id+"\"><label for=\"operate-"+json[i].secList[k].operateList[l].id+"\">"+json[i].secList[k].operateList[l].name+"</label>";
+                                    content+="</dd>";
+                                }
+                            }
+                            content+="</dl>";
+                            content+="</div>";
+                            content+="</dd>";
+                        }
+                    }
+                    content+="</dl>";
+                    srt.html(content);
+                }
+	    	}
+	    	
+	    })
+	    if(flag=='update'||flag=='query'){
+			updateShow();
+		}
+
+        permission();
+    }
+    var obj={}; 
+    var ilist = [];
+    var olist =[];
+    
+    function sbmit_1(){
+ 	   if(flag == "update"){
+ 		   url =updateUrl;
+ 	   }else if(flag == "add"){
+ 		  url =addUrl;
+ 	   }else{
+ 		  
+ 	   }
+ 	   $('#tree_show').find(':checkbox').each(function(){
+ 		   if ($(this).is(":checked")) {
+ 				if($(this).attr("id").indexOf("-")==4){
+ 					ilist.push($(this).attr("id").substr($(this).attr("id").indexOf("-")+1,$(this).attr("id").length));
+ 				}else{
+ 					var omap ={};
+ 					omap.id = $(this).attr("id").substr($(this).attr("id").indexOf("-")+1,$(this).attr("id").length);
+ 					omap.itemid = $(this).attr("parentid").substr($(this).attr("parentid").indexOf("-")+1,$(this).attr("parentid").length);
+ 					olist.push(omap);	
+ 				}
+ 					
+ 		   }
+ 		});
+ 	   obj.ilist = ilist;
+ 	   obj.olist = olist;
+ 	   
+ 	   var parm =JSON.stringify(obj);
+ 	   $.ajax({
+ 		   type:"post",
+ 		   url:url,
+ 		   async:false,
+ 		   dataType:"json",
+ 		   data:{
+ 			   "json":parm,"roleName":$("#role-name").val(),"des":$("#role-desc").val(),"id":$("#role-id").val()
+ 		   },
+ 		   success:function (data) {
+ 			   if(data.result=="0"){
+ 				//  window.location.href="authority.html?item2Id="+$.getUrlParam("item2Id")+"";
+ 					   alert("保存成功！");
+ 			   }else{
+ 				   alert("出错了！");
+ 				   console.log("保存信息失败！！");
+ 			   }
+ 		   },
+ 		   error:function () {
+ 			   alert("出错了！");
+ 			   console.log("保存信息失败！！！")
+ 		   }
+ 	   });
+    }
+    function updateShow(){
+    	$.ajax({
+	    	type: "post",
+	    	url:"/roleManagerRest/queryRoleUpdate",
+	    	async:false,
+	    	data:{"id":id},
+	    	dataType:"json",
+	    	success:function(data,status) {	
+	    		if(status=="success") {
+	    			if(data.data){
+	    				$("#role-name").val(data.data.roleName);
+	    				$("#role-desc").val(data.data.des);
+	    				$("#role-id").val(data.data.roleId);
+	    				for(var r=0;r<data.data.itemList.length;r++){
+	    				//	if(document.getElementById(data.data.itemList[r].id).checked){
+	    						document.getElementById(data.data.itemList[r].id).checked ="checked";
+	    					//}
+	    				}
+	    			}
+	    		}
+	    	}
+		});
+    }
+    </script>
+</head>
+<body>
+<input type="hidden" id="role-id" name="roleid" >
+<article id="webbar" class="system-add-user">
+    <div class="tab clearfix">
+        <ul>
+            <li><a href="#">用户管理</a></li>
+            <li><a href="#" class="active">权限管理</a></li>
+            <li><a href="#">操作日志</a></li>
+        </ul>
+    </div>
+    <div class="tab">
+        <div class="linebar clearfix">
+            <label class="lab">角色名称</label>
+            <input type="text" name="rolename" id="role-name" value="" class="inpclass">
+        </div>
+        <div class="linebar  clearfix">
+            <label class="lab">角色描述</label>
+            <input type="text" name="roledes" id="role-desc" value="" class="inpclass">
+        </div>
+   
+    </div>
+    <div class="tab">
+        <div class="clearfix">
+            <h3 class="perm-title">权限设置</h3>
+            <div class="perm-list" id="tree_show">
+                <dl class="perm-item">
+                    <dt>
+                        <input type="checkbox" class="ifc" name="item-1" id="item-1">
+                        <label for="item-1"><span>资源管理</span></label>
+                    </dt>
+                    <dd>
+                        <input type="checkbox" parentid="item-1" class="ifc" name="item-1" id="checkfirst01"><label for="checkfirst01">查看</label>
+                    </dd>
+                    <dd>
+                        <input type="checkbox" parentid="item-1" class="ifc" name="item-1" id="checkfirst02"><label for="checkfirst02">发布</label>
+                    </dd>
+                    <dd>
+                        <input type="checkbox" parentid="item-1" class="ifc" name="item-1" id="checkfirst03"><label for="checkfirst03">编辑</label>
+                    </dd>
+                    <dd>
+                        <input type="checkbox" parentid="item-1" class="ifc" name="item-1" id="checkfirst04"><label for="checkfirst04">下架</label>
+                    </dd>
+                </dl>
+                <dl class="perm-item">
+                    <dt>
+                        <input type="checkbox" class="ifc" name="item-12" id="item-12">
+                        <label for="item-12"><span>用户管理</span></label>
+                    </dt>
+                    <dd>
+                        <input type="checkbox" parentid="item-12" class="ifc" name="item-12" id="checksecond01"><label for="checksecond01">查看</label>
+                    </dd>
+                    <dd>
+                        <input type="checkbox" parentid="item-12" class="ifc" name="item-12" id="checksecond02"><label for="checksecond02">禁用</label>
+                    </dd>
+                </dl>
+                <dl class="perm-item">
+                    <dt>
+                        <input type="checkbox" class="ifc" name="item-13" id="item-13">
+                        <label for="item-13"><span>订单管理</span></label>
+                    </dt>
+                    <dd>
+                        <input type="checkbox" parentid="item-13" class="ifc" name="item-13" id="checkthird01"><label for="checkthird01">编辑</label>
+                    </dd>
+                    <dd>
+                        <input type="checkbox" parentid="item-13" class="ifc" name="item-13" id="checkthird02"><label for="checkthird02">导出</label>
+                    </dd>
+                    <dd>
+                        <input type="checkbox" parentid="item-13" class="ifc" name="item-13" id="checkthird03"><label for="checkthird03">发稿</label>
+                    </dd>
+                </dl>
+                <dl class="perm-item">
+                    <dt>
+                        <input type="checkbox" class="ifc" name="item-14" id="item-14">
+                        <label for="item-14"><span>字典管理</span></label>
+                    </dt>
+                    <dd>
+                        <div class="col">
+                            <dl>
+                                <dt>
+                                    <input type="checkbox" parentid="item-14" class="ifc" name="item-11-1" id="item-11-1"><label for="item-11-1"><span >屏蔽词管理</span></label>
+                                </dt>
+                                <dd>
+                                    <input type="checkbox" parentid="item-14" class="ifc" name="item-11-1" id="checkfour01"><label for="checkfour01">添加</label>
+                                </dd>
+                                <dd>
+                                    <input type="checkbox" parentid="item-14" class="ifc" name="item-11-1" id="checkfour02"><label for="checkfour02">编辑</label>
+                                </dd>
+                                <dd>
+                                    <input type="checkbox" parentid="item-14" class="ifc" name="item-11-1" id="checkfour03"><label for="checkfour03">删除</label>
+                                </dd>
+                            </dl>
+                        </div>
+                    </dd>
+                    <dd>
+                        <div class="col">
+                            <dl>
+                                <dt>
+                                    <input type="checkbox" parentid="item-15" class="ifc" name="item-11-2" id="item-11-2"><label for="item-11-2"><span >搜索词管理</span></label>
+                                </dt>
+                                <dd>
+                                    <input type="checkbox" parentid="item-15" class="ifc" name="item-11-2" id="checkfive01"><label for="checkfive01">推荐</label>
+                                </dd>
+                                <dd>
+                                    <input type="checkbox" parentid="item-15" class="ifc" name="item-11-2" id="checkfive02"><label for="checkfive02">删除</label>
+                                </dd>
+                            </dl>
+                        </div>
+                    </dd>
+                </dl>
+                <dl class="perm-item">
+                    <dt>
+                        <input type="checkbox" class="ifc" name="item-16" id="item-16">
+                        <label for="item-16"><span>评论管理</span></label>
+                    </dt>
+                    <dd>
+                        <input type="checkbox" parentid="item-16" class="ifc" name="item-13" id="checksix01"><label for="checksix01">编辑</label>
+                    </dd>
+                    <dd>
+                        <input type="checkbox" parentid="item-16" class="ifc" name="item-13" id="checksix02"><label for="checksix02">导出</label>
+                    </dd>
+                    <dd>
+                        <input type="checkbox" parentid="item-16" class="ifc" name="item-13" id="checksix03"><label for="checksix03">发稿</label>
+                    </dd>
+                </dl>
+                <dl class="perm-item">
+                    <dt>
+                        <input type="checkbox" class="ifc" name="item-17" id="item-17">
+                        <label for="item-17"><span>推荐管理</span></label>
+                    </dt>
+                    <dd>
+                        <div class="col">
+                            <dl>
+                                <dt>
+                                    <input type="checkbox" parentid="item-17" class="ifc" name="item-11-3" id="item-11-3"><label for="item-11-3"><span >资源推荐</span></label>
+                                </dt>
+                                <dd>
+                                    <input type="checkbox" parentid="item-17" class="ifc" name="item-11-3" id="checkseven01"><label for="checkseven01">编辑</label>
+                                </dd>
+                                <dd>
+                                    <input type="checkbox" parentid="item-17" class="ifc" name="item-11-3" id="checkseven02"><label for="checkseven02">删除</label>
+                                </dd>
+                            </dl>
+                        </div>
+                    </dd>
+                    <dd>
+                        <div class="col">
+                            <dl>
+                                <dt>
+                                    <input type="checkbox" parentid="item-15" class="ifc" name="item-11-4" id="item-11-4"><label for="item-11-4"><span >相关推荐</span></label>
+                                </dt>
+                                <dd>
+                                    <input type="checkbox" parentid="item-15" class="ifc" name="item-11-4" id="checkeight01"><label for="checkeight01">推荐</label>
+                                </dd>
+                                <dd>
+                                    <input type="checkbox" parentid="item-15" class="ifc" name="item-11-4" id="checkeight02"><label for="checkeight02">删除</label>
+                                </dd>
+                            </dl>
+                        </div>
+                    </dd>
+                </dl>
+                <dl class="perm-item">
+                    <dt>
+                        <input type="checkbox" class="ifc" name="item-18" id="item-18">
+                        <label for="item-18"><span>统计分析</span></label>
+                    </dt>
+                    <dd>
+                        <div class="col">
+                            <dl>
+                                <dt>
+                                    <input type="checkbox" parentid="item-18" class="ifc" name="item-11-5" id="item-11-5"><label for="item-11-5"><span >订单统计</span></label>
+                                </dt>
+                            </dl>
+                        </div>
+                    </dd>
+                    <dd>
+                        <div class="col">
+                            <dl>
+                                <dt>
+                                    <input type="checkbox" parentid="item-18" class="ifc" name="item-11-6" id="item-11-6"><label for="item-11-6"><span >用户统计</span></label>
+                                </dt>
+                            </dl>
+                        </div>
+                    </dd>
+                </dl>
+                <dl class="perm-item">
+                    <dt>
+                        <input type="checkbox" class="ifc" name="item-19" id="item-19">
+                        <label for="item-19"><span>权限管理</span></label>
+                    </dt>
+                    <dd>
+                        <div class="col">
+                            <dl>
+                                <dt>
+                                    <input type="checkbox" parentid="item-19" class="ifc" name="item-11-7" id="item-11-7"><label for="item-11-7"><span >用户管理</span></label>
+                                </dt>
+                            </dl>
+                        </div>
+                    </dd>
+                    <dd>
+                        <div class="col">
+                            <dl>
+                                <dt>
+                                    <input type="checkbox" parentid="item-19" class="ifc" name="item-11-6" id="item-11-8"><label for="item-11-8"><span >用户统计</span></label>
+                                </dt>
+                            </dl>
+                        </div>
+                    </dd>
+                    <dd>
+                        <div class="col">
+                            <dl>
+                                <dt>
+                                    <input type="checkbox" parentid="item-19" class="ifc" name="item-11-6" id="item-11-9"><label for="item-11-9"><span >操作日志</span></label>
+                                </dt>
+                            </dl>
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+      <section class="btn-section clearfix">
+       <script type="text/javascript">
+     	 if(flag!='query'){
+        	document.write("<button class=\"confirm\" onclick=\"sbmit_1()\">确认</button>")
+         }
+     	</script>
+        <button class="reset">取消</button>
+    </section>	
+</article>
+</body>
+</html>

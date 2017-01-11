@@ -1,0 +1,71 @@
+@import "config";
+@import "compass";
+
+ul,li{
+  margin: 0px;
+  padding: 0px;
+}
+.hide{
+  display: none!important;
+}
+.btn-normal{
+  @include radiusBtn($buttonWidth:80px,$buttonHeight:30px,$bg:$mainColor,$fC:$whiteColor,$borderCol:$mainColor,$radius:$angle);
+}
+.page{
+  padding: 0 15px;
+  margin-top: 5px;
+  font-size: 12px;
+  color: #666;
+  .wrap_page_l{
+    float: left;
+    width: 130px;
+    .mt15{
+      margin-bottom: 15px;
+    }
+  }
+  .page-bar {
+    ul{
+      float: right;
+    }
+    .active a{
+      cursor: default;
+      border:1px solid #d2d2d2;
+      border-radius: 3px ;
+    }
+    li {
+      list-style: none;
+      display: inline-block;
+      &:first-child > a {
+        margin-left: 0px;
+      }
+      a {
+        text-decoration: none;
+        position: relative;
+        float: left;
+        margin-left: 5px;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        &.btn {
+          height: 30px;
+          width: 80px;
+          text-align: center;
+          background: #dfe1e7;
+          border-radius: 4px;
+        }
+      }
+      i{
+        font-style:normal;
+        color: #d44950;
+        margin: 0px 4px;
+        font-size: 12px;
+      }
+    }
+  }
+  //.page_tips{
+  //  float: left;
+  //}
+}
+
